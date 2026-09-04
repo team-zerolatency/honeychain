@@ -5,11 +5,18 @@ export default defineConfig({
   plugins: [hardhatToolboxViem],
 
   solidity: {
-    version: "0.8.24",
-    settings: {
-      optimizer: {
-        enabled: true,
-        runs: 200,
+    profiles: {
+      default: {
+        version: "0.8.24",
+      },
+      production: {
+        version: "0.8.24",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
       },
     },
   },
@@ -26,13 +33,6 @@ export default defineConfig({
       url: "http://127.0.0.1:8545",
     },
 
-    besu: {
-      type: "http",
-      chainType: "generic",
-      url: process.env.BESU_RPC_URL ?? "http://127.0.0.1:8545",
-      accounts: process.env.BESU_PRIVATE_KEY
-        ? [process.env.BESU_PRIVATE_KEY]
-        : [],
-    },
+    // Hyperledger Besu QBFT network will be added later
   },
 });
