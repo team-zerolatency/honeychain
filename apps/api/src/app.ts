@@ -8,6 +8,9 @@ import { authRouter } from "./routes/auth.routes";
 import { errorHandler } from "./middleware/error-handler";
 import { authenticate } from "./middleware/authenticate";
 import { requireRole } from "./middleware/require-role";
+import { apiaryRouter } from "./routes/apiary.routes";
+import { hiveRouter } from "./routes/hive.routes";
+import { harvestRouter } from "./routes/harvest.routes";
 
 export function createApp(): express.Express {
   const app = express();
@@ -17,6 +20,10 @@ export function createApp(): express.Express {
   app.use(express.json());
   app.use(cookieParser());
   if (env.NODE_ENV !== "test") app.use(pinoHttp());
+
+  app.use("/apiaries", apiaryRouter);
+  app.use("/hives", hiveRouter);
+  app.use("/harvests", harvestRouter);
 
   app.get("/health", (_req, res) => res.json({ status: "ok" }));
 

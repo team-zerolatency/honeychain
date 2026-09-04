@@ -1,15 +1,8 @@
+import { AppError as AuthError } from "./errors";
 import argon2 from "argon2";
 import { prisma } from "@repo/database";
 import type { UserCreateInput, LoginInput, Role } from "@repo/types";
 import { signAccessToken, signRefreshToken } from "../utils/jwt";
-
-export class AuthError extends Error {
-  status: number;
-  constructor(message: string, status = 401) {
-    super(message);
-    this.status = status;
-  }
-}
 
 // ADMIN accounts are provisioned separately (seed script / invited by an existing
 // admin) — never through the open registration endpoint.
