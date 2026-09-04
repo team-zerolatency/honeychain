@@ -11,6 +11,9 @@ import { requireRole } from "./middleware/require-role";
 import { apiaryRouter } from "./routes/apiary.routes";
 import { hiveRouter } from "./routes/hive.routes";
 import { harvestRouter } from "./routes/harvest.routes";
+import { batchRouter } from "./routes/batch.routes";
+import { bottleRouter } from "./routes/bottle.routes";
+import { verificationRouter } from "./routes/verification.routes";
 
 export function createApp(): express.Express {
   const app = express();
@@ -24,6 +27,9 @@ export function createApp(): express.Express {
   app.use("/apiaries", apiaryRouter);
   app.use("/hives", hiveRouter);
   app.use("/harvests", harvestRouter);
+  app.use("/batches", batchRouter);
+  app.use("/bottles", bottleRouter);
+  app.use("/verify", verificationRouter);
 
   app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
