@@ -2,6 +2,8 @@ packages:
   - "apps/*"
   - "packages/*"
 catalog:
+  prisma: ^7.9.1
+  "@prisma/client": ^7.9.1
   typescript: ^5.9.0
   zod: ^4.0.0
   react: ^19.0.0

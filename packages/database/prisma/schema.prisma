@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  BEEKEEPER
+  STORE_OWNER
+}
+
+enum HiveStatus {
+  ACTIVE
+  INACTIVE
+  MAINTENANCE
+}
+
+enum LifecycleState {
+  HARVESTED
+  EXTRACTED
+  PACKED
+  DISPATCHED
+  RECEIVED
+  AVAILABLE_FOR_SALE
+}
+
+enum VerificationOutcome {
+  GREEN
+  YELLOW
+  RED
+}
+
+model Organization {
+  id        String   @id @default(uuid())
+  name      String
+  users     User[]
+  createdAt DateTime @default(now())
+}
+
+model User {
+  id             String        @id @default(uuid())
+  name           String
+  email          String        @unique
+  passwordHash   String
+  role           Role
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  apiaries          Apiary[]
+  harvests          Harvest[]
+  supplyChainEvents SupplyChainEvent[]
+
+  createdAt DateTime @default(now())
+
+  @@index([organizationId])
+}
+
+model Apiary {
+  id          String @id @default(uuid())
+  beekeeperId String
+  beekeeper   User   @relation(fields: [beekeeperId], references: [id])
+  name        String
+  location    String
+
+  hives     Hive[]
+  createdAt DateTime @default(now())
+
+  @@index([beekeeperId])
+}
+
+model Hive {
+  id       String     @id @default(uuid())
+  apiaryId String
+  apiary   Apiary     @relation(fields: [apiaryId], references: [id])
+  hiveCode String     @unique
+  status   HiveStatus @default(ACTIVE)
+
+  sensorReadings SensorReading[]
+  harvests       Harvest[]
+  createdAt      DateTime        @default(now())
+
+  @@index([apiaryId])
+}
+
+model SensorReading {
+  id            String   @id @default(uuid())
+  hiveId        String
+  hive          Hive     @relation(fields: [hiveId], references: [id])
+  temperature   Float
+  humidity      Float
+  weight        Float
+  acousticScore Float?
+  timestamp     DateTime
+  createdAt     DateTime @default(now())
+
+  @@index([hiveId, timestamp])
+}
+
+model Harvest {
+  id          String   @id @default(uuid())
+  hiveId      String
+  hive        Hive     @relation(fields: [hiveId], references: [id])
+  beekeeperId String
+  beekeeper   User     @relation(fields: [beekeeperId], references: [id])
+  quantity    Float
+  harvestDate DateTime
+  location    String
+
+  batch     Batch?
+  createdAt DateTime @default(now())
+
+  @@index([hiveId])
+  @@index([beekeeperId])
+}
+
+model Batch {
+  id             String         @id @default(uuid())
+  batchCode      String         @unique
+  harvestId      String         @unique
+  harvest        Harvest        @relation(fields: [harvestId], references: [id])
+  quantity       Float
+  processingDate DateTime
+  status         LifecycleState @default(HARVESTED)
+
+  bottles      Bottle[]
+  events       SupplyChainEvent[]
+  certificates QualityCertificate[]
+  createdAt    DateTime              @default(now())
+}
+
+model Bottle {
+  id         String         @id @default(uuid())
+  batchId    String
+  batch      Batch          @relation(fields: [batchId], references: [id])
+  bottleCode String         @unique
+  qrToken    String         @unique
+  scratchHash String
+  status     LifecycleState @default(PACKED)
+
+  events    SupplyChainEvent[]
+  scans     VerificationScan[]
+  createdAt DateTime           @default(now())
+
+  @@index([batchId])
+  @@index([qrToken])
+}
+
+model SupplyChainEvent {
+  id        String         @id @default(uuid())
+  batchId   String?
+  batch     Batch?         @relation(fields: [batchId], references: [id])
+  bottleId  String?
+  bottle    Bottle?        @relation(fields: [bottleId], references: [id])
+  eventType LifecycleState
+  actorId   String
+  actor     User           @relation(fields: [actorId], references: [id])
+  location  String?
+  txHash    String?
+  timestamp DateTime       @default(now())
+
+  @@index([batchId])
+  @@index([bottleId])
+}
+
+model VerificationScan {
+  id        String              @id @default(uuid())
+  bottleId  String
+  bottle    Bottle              @relation(fields: [bottleId], references: [id])
+  outcome   VerificationOutcome
+  location  String?
+  signals   Json?
+  scannedAt DateTime            @default(now())
+
+  @@index([bottleId, scannedAt])
+}
+
+model QualityCertificate {
+  id             String   @id @default(uuid())
+  batchId        String
+  batch          Batch    @relation(fields: [batchId], references: [id])
+  certificateRef String
+  metadataHash   String
+  issuer         String
+  date           DateTime
+  createdAt      DateTime @default(now())
+
+  @@index([batchId])
+}
