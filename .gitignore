@@ -39,3 +39,11 @@ yarn-error.log*
 
 # Test scripts
 **/scripts/
+
+# Exception: Do not ignore the deploy.ts file
+!packages/blockchain/scripts
+
+# blockchain files
+packages/blockchain/artifacts
+packages/blockchain/cache
+packages/blockchain/typechain-types
