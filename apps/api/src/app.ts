@@ -14,6 +14,7 @@ import { harvestRouter } from "./routes/harvest.routes";
 import { batchRouter } from "./routes/batch.routes";
 import { bottleRouter } from "./routes/bottle.routes";
 import { verificationRouter } from "./routes/verification.routes";
+import { eventsRouter } from "./routes/lifecycle.routes";
 
 export function createApp(): express.Express {
   const app = express();
@@ -23,6 +24,10 @@ export function createApp(): express.Express {
   app.use(express.json());
   app.use(cookieParser());
   if (env.NODE_ENV !== "test") app.use(pinoHttp());
+  
+  app.get("/health", (_req, res) => res.json({ status: "ok" }));
+
+  app.use("/auth", authRouter);
 
   app.use("/apiaries", apiaryRouter);
   app.use("/hives", hiveRouter);
@@ -30,10 +35,7 @@ export function createApp(): express.Express {
   app.use("/batches", batchRouter);
   app.use("/bottles", bottleRouter);
   app.use("/verify", verificationRouter);
-
-  app.get("/health", (_req, res) => res.json({ status: "ok" }));
-
-  app.use("/auth", authRouter);
+  app.use("/events", eventsRouter);
 
   // Proves auth + RBAC work end-to-end — real domain routes start in Phase 4
   app.get("/me", authenticate, (req, res) => {

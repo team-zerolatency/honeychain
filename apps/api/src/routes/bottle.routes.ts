@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { BottleCreateSchema } from "@repo/types";
 import type { Router as ExpressRouter } from "express";
+import { listEventsForBottle } from "../services/lifecycle.service"
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { createBottle, getBottleWithOwnershipCheck } from "../services/bottle.service";
@@ -22,6 +23,15 @@ bottleRouter.get("/:id", async (req, res, next) => {
   try {
     const bottle = await getBottleWithOwnershipCheck(req.params.id, req.user!.id, req.user!.role);
     res.json(bottle);
+  } catch (err) {
+    next(err);
+  }
+});
+
+bottleRouter.get("/:id/events", async (req, res, next) => {
+  try {
+    const events = await listEventsForBottle(req.params.id, req.user!.id, req.user!.role);
+    res.json(events);
   } catch (err) {
     next(err);
   }
