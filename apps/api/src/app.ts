@@ -16,6 +16,8 @@ import { batchRouter } from "./routes/batch.routes";
 import { bottleRouter } from "./routes/bottle.routes";
 import { verificationRouter } from "./routes/verification.routes";
 import { eventsRouter } from "./routes/lifecycle.routes";
+import { adminRouter } from "./routes/admin.routes";
+import { storeOwnerRouter } from "./routes/store-owner.routes";
 
 export function createApp(): express.Express {
   const app = express();
@@ -37,6 +39,8 @@ export function createApp(): express.Express {
   app.use("/bottles", bottleRouter);
   app.use("/verify", verificationRouter);
   app.use("/events", eventsRouter);
+  app.use("/admin", adminRouter);
+  app.use(["/store-owners", "/store-owner"], storeOwnerRouter);
 
   // Proves auth + RBAC work end-to-end — real domain routes start in Phase 4
   app.get("/me", authenticate, (req, res) => {

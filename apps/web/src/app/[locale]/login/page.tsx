@@ -15,12 +15,6 @@ export default function LoginPage() {
           <div className="mt-6">
             <LoginForm />
           </div>
-          <p className="mt-6 text-sm text-muted-foreground">
-            {t("noAccount")}{" "}
-            <Link href="/register" className="text-accent underline underline-offset-4">
-              {t("register")}
-            </Link>
-          </p>
         </HexCard>
       </Card>
     </main>

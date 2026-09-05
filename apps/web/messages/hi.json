@@ -2,14 +2,14 @@
   "auth": {
     "loginTitle": "लॉग इन करें",
     "registerTitle": "खाता बनाएं",
-    "email": "ईमेल",
+    "identifier": "मधुमक्खी पालक आईडी, स्टोर आईडी या ईमेल",
     "password": "पासवर्ड",
     "name": "नाम",
     "role": "मैं हूँ",
     "roleBeekeeper": "मधुमक्खी पालक",
     "roleStoreOwner": "स्टोर मालिक",
-    "login": "लॉग इन करें",
-    "loggingIn": "लॉग इन हो रहा है…",
+    "login": "जारी रखें",
+    "loggingIn": "साइन इन हो रहा है…",
     "register": "खाता बनाएं",
     "registering": "खाता बनाया जा रहा है…",
     "genericError": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
@@ -41,7 +41,8 @@
     "verify": "सत्यापित करें",
     "monitor": "निगरानी",
     "themeToggle": "थीम बदलें",
-    "languageToggle": "भाषा बदलें"
+    "languageToggle": "भाषा बदलें",
+    "continue": "जारी रखें"
   },
   "home": {
     "title": "शहद जिसे छत्ते तक खोजा जा सकता है।",

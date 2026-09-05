@@ -25,7 +25,7 @@ export function LoginForm() {
 
   const form = useForm<LoginInput>({
     resolver: zodResolver(LoginSchema),
-    defaultValues: { email: "", password: "" },
+    defaultValues: { identifier: "", password: "" }
   });
 
   const mutation = useMutation({
@@ -42,14 +42,14 @@ export function LoginForm() {
       <form onSubmit={form.handleSubmit((values) => mutation.mutate(values))} className="space-y-4">
         <FormField
           control={form.control}
-          name="email"
+          name="identifier"
           render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("email")}</FormLabel>
-              <FormControl><Input type="email" {...field} /></FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
+              <FormItem>
+                <FormLabel>{t("identifier")}</FormLabel>
+                <FormControl><Input {...field} /></FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
         />
         <FormField
           control={form.control}

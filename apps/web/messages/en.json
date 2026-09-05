@@ -2,14 +2,14 @@
   "auth": {
     "loginTitle": "Log in",
     "registerTitle": "Create an account",
-    "email": "Email",
+    "identifier": "Beekeeper ID, Store ID, or email",
     "password": "Password",
     "name": "Name",
     "role": "I am a",
     "roleBeekeeper": "Beekeeper",
     "roleStoreOwner": "Store owner",
-    "login": "Log in",
-    "loggingIn": "Logging in…",
+    "login": "Continue",
+    "loggingIn": "Signing in…",
     "register": "Create account",
     "registering": "Creating account…",
     "genericError": "Something went wrong. Please try again.",
@@ -41,7 +41,8 @@
     "verify": "Verify",
     "monitor": "Monitor",
     "themeToggle": "Toggle theme",
-    "languageToggle": "Change language"
+    "languageToggle": "Change language",
+    "continue": "Continue"
   },
   "home": {
     "title": "Honey you can trace to the hive.",

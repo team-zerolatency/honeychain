@@ -1,8 +1,8 @@
 import { Router } from "express";
-import type { Router as ExpressRouter } from "express";
 import rateLimit from "express-rate-limit";
-import { UserCreateSchema, LoginSchema } from "@repo/types";
-import { registerUser, loginUser } from "../services/auth.service";
+import type { Router as ExpressRouter } from "express";
+import { LoginSchema } from "@repo/types";
+import { loginUser } from "../services/auth.service";
 import { verifyRefreshToken, signAccessToken } from "../utils/jwt";
 import { env } from "../env";
 
@@ -23,17 +23,6 @@ const cookieOptions = {
   sameSite: "lax" as const,
   path: "/auth",
 };
-
-authRouter.post("/register", async (req, res, next) => {
-  try {
-    const input = UserCreateSchema.parse(req.body);
-    const result = await registerUser(input);
-    res.cookie(REFRESH_COOKIE, result.refreshToken, cookieOptions);
-    res.status(201).json({ userId: result.userId, role: result.role, accessToken: result.accessToken });
-  } catch (err) {
-    next(err);
-  }
-});
 
 authRouter.post("/login", loginLimiter, async (req, res, next) => {
   try {

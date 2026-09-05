@@ -44,11 +44,17 @@ model Organization {
 model User {
   id             String        @id @default(uuid())
   name           String
-  email          String        @unique
+  email          String?       @unique
+  memberId       String?       @unique
+  location       String?
   passwordHash   String
   role           Role
   organizationId String?
   organization   Organization? @relation(fields: [organizationId], references: [id])
+
+  createdById  String?
+  createdBy    User?   @relation("UserCreatedBy", fields: [createdById], references: [id])
+  createdUsers User[]  @relation("UserCreatedBy")
 
   apiaries          Apiary[]
   harvests          Harvest[]
@@ -57,8 +63,8 @@ model User {
   createdAt DateTime @default(now())
 
   @@index([organizationId])
+  @@index([createdById])
 }
-
 model Apiary {
   id          String @id @default(uuid())
   beekeeperId String

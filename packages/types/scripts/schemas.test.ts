@@ -1,7 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
   RoleSchema,
-  UserCreateSchema,
   HiveSchema,
   SupplyChainEventCreateSchema,
   ScratchVerifySchema,
@@ -18,39 +17,6 @@ describe("enums", () => {
   });
 });
 
-describe("UserCreateSchema", () => {
-  it("accepts a valid registration payload", () => {
-    const result = UserCreateSchema.parse({
-      name: "Haider Ali",
-      email: "haider@example.com",
-      password: "supersecurepw",
-      role: "BEEKEEPER",
-    });
-    expect(result.role).toBe("BEEKEEPER");
-  });
-
-  it("rejects a password shorter than 8 chars", () => {
-    expect(() =>
-      UserCreateSchema.parse({
-        name: "Haider Ali",
-        email: "haider@example.com",
-        password: "short",
-        role: "BEEKEEPER",
-      })
-    ).toThrow();
-  });
-
-  it("rejects an invalid email", () => {
-    expect(() =>
-      UserCreateSchema.parse({
-        name: "Haider Ali",
-        email: "not-an-email",
-        password: "supersecurepw",
-        role: "BEEKEEPER",
-      })
-    ).toThrow();
-  });
-});
 
 describe("HiveSchema", () => {
   it("rejects a non-uuid apiaryId", () => {

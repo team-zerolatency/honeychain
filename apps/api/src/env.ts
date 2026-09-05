@@ -1,5 +1,20 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+import { existsSync } from "node:fs";
+import { resolve } from "node:path";
 import { z } from "zod";
+
+const candidateEnvFiles = [
+  resolve(process.cwd(), ".env"),
+  resolve(process.cwd(), "../../.env"),
+  resolve(__dirname, "../../.env"),
+  resolve(__dirname, "../../../.env"),
+];
+
+for (const p of candidateEnvFiles) {
+  if (existsSync(p)) {
+    dotenv.config({ path: p });
+  }
+}
 
 const EnvSchema = z
   .object({
