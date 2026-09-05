@@ -58,6 +58,24 @@
     "demoVerified": "Verified — GREEN",
     "demoNoAnomaly": "No anomalies detected."
   },
+  "admin": {
+    "nav": { "overview": "Overview", "beekeepers": "Beekeepers", "audit": "Audit", "logout": "Log out" },
+    "overview": {
+      "totalBeekeepers": "Beekeepers", "totalHives": "Hives", "totalBatches": "Batches", "totalStoreOwners": "Store owners",
+      "verificationTrend": "Verification outcomes (last 14 days)", "noScansYet": "No verification scans yet."
+    },
+    "beekeepers": {
+      "issue": "Issue a Beekeeper account", "name": "Name", "submit": "Issue credentials", "submitting": "Issuing…",
+      "issuedTitle": "Credentials issued — save these now, they won't be shown again",
+      "memberId": "Beekeeper ID", "temporaryPassword": "Temporary password", "close": "Done",
+      "list": "All beekeepers", "noBeekeepers": "No beekeepers issued yet.",
+      "apiaryCount": "apiaries", "harvestCount": "harvests"
+    },
+    "audit": {
+      "heading": "Blockchain audit trail", "event": "Event", "entity": "Entity", "actor": "Actor",
+      "txHash": "Tx hash", "noTx": "Not recorded on-chain", "time": "Time", "noEvents": "No events recorded yet."
+    }
+  },
   "pillars": {
     "trace": "Record honey origin, batch, bottle and supply-chain events.",
     "verify": "QR + scratch code + lifecycle signals catch verification anomalies.",

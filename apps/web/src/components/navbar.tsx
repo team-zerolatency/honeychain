@@ -20,7 +20,8 @@ export function Navbar() {
     router.push("/login");
   }
 
-  const destination = role === "STORE_OWNER" ? "/store-owner" : "/dashboard";
+  const destination =
+    role === "ADMIN" ? "/admin" : role === "STORE_OWNER" ? "/store-owner" : "/dashboard";
 
   return (
     <nav className="flex items-center justify-between border-b border-border px-6 py-4">

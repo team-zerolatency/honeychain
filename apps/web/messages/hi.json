@@ -58,6 +58,24 @@
     "demoVerified": "सत्यापित — हरा",
     "demoNoAnomaly": "कोई विसंगति नहीं मिली।"
   },
+  "admin": {
+    "nav": { "overview": "अवलोकन", "beekeepers": "मधुमक्खी पालक", "audit": "ऑडिट", "logout": "लॉग आउट" },
+    "overview": {
+      "totalBeekeepers": "मधुमक्खी पालक", "totalHives": "छत्ते", "totalBatches": "बैच", "totalStoreOwners": "स्टोर मालिक",
+      "verificationTrend": "सत्यापन परिणाम (पिछले 14 दिन)", "noScansYet": "अभी तक कोई सत्यापन स्कैन नहीं।"
+    },
+    "beekeepers": {
+      "issue": "मधुमक्खी पालक खाता जारी करें", "name": "नाम", "submit": "क्रेडेंशियल जारी करें", "submitting": "जारी हो रहा है…",
+      "issuedTitle": "क्रेडेंशियल जारी — अभी सहेज लें, दोबारा नहीं दिखेंगे",
+      "memberId": "मधुमक्खी पालक आईडी", "temporaryPassword": "अस्थायी पासवर्ड", "close": "पूर्ण",
+      "list": "सभी मधुमक्खी पालक", "noBeekeepers": "अभी तक कोई मधुमक्खी पालक जारी नहीं हुआ।",
+      "apiaryCount": "एपियरी", "harvestCount": "फसलें"
+    },
+    "audit": {
+      "heading": "ब्लॉकचेन ऑडिट ट्रेल", "event": "घटना", "entity": "इकाई", "actor": "कर्ता",
+      "txHash": "Tx हैश", "noTx": "चेन पर दर्ज नहीं", "time": "समय", "noEvents": "अभी तक कोई घटना दर्ज नहीं हुई।"
+    }
+  },
   "pillars": {
     "trace": "शहद की उत्पत्ति, बैच, बोतल और आपूर्ति-श्रृंखला की घटनाओं को रिकॉर्ड करें।",
     "verify": "QR + स्क्रैच कोड + जीवनचक्र संकेत विसंगतियों को पकड़ते हैं।",
