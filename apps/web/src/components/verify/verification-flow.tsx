@@ -15,6 +15,7 @@ import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "
 import { GlassPanel } from "@repo/ui/glass-panel";
 import { Card } from "@repo/ui/card";
 import { HexCard } from "@repo/ui/hex-card";
+import { QrCodeIcon } from "@/components/icons/qr-code-icon";
 
 type Stage = "start" | "scanning" | "scratch" | "result";
 
@@ -93,19 +94,20 @@ export function VerificationFlow() {
           <HexCard className="flex flex-col gap-4 p-8">
             <h1 className="font-display text-2xl font-medium">{t("title")}</h1>
             <p className="text-muted-foreground">{t("subtitle")}</p>
-            <Button
+            <button
               type="button"
-              className="touch-manipulation"
+              className="touch-manipulation flex h-13 w-full items-center justify-center gap-2.5 rounded-2xl bg-accent px-6 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-accent-strong active:scale-[0.99]"
               onClick={() => {
                 setCameraError(null);
                 setStage("scanning");
               }}
             >
-              {t("scanButton")}
-            </Button>
+              <QrCodeIcon className="size-5 shrink-0" />
+              <span>{t("scanButton")}</span>
+            </button>
             <button
               type="button"
-              className="text-sm text-muted-foreground underline underline-offset-4 touch-manipulation"
+              className="touch-manipulation flex h-13 w-full items-center justify-center rounded-2xl border border-border/80 bg-surface-2/40 px-6 py-3.5 text-sm md:text-base font-medium text-foreground transition-all hover:bg-surface-2/80 hover:border-accent/40 active:scale-[0.99]"
               onClick={() => setStage("scratch")}
             >
               {t("manualEntryLink")}
@@ -177,9 +179,14 @@ export function VerificationFlow() {
                     <FormMessage />
                   </FormItem>
                 )} />
-                <Button type="submit" disabled={verifyMutation.isPending}>
-                  {verifyMutation.isPending ? t("verifying") : t("verifyButton")}
-                </Button>
+                <button
+                  type="submit"
+                  disabled={verifyMutation.isPending}
+                  className="touch-manipulation flex h-13 w-full items-center justify-center gap-2.5 rounded-2xl bg-accent px-6 py-3.5 text-base font-medium text-white shadow-sm transition-all hover:bg-accent-strong disabled:pointer-events-none disabled:opacity-50 active:scale-[0.99]"
+                >
+                  <QrCodeIcon className="size-5 shrink-0" />
+                  <span>{verifyMutation.isPending ? t("verifying") : t("verifyButton")}</span>
+                </button>
               </form>
             </Form>
           </HexCard>

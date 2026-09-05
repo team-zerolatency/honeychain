@@ -40,11 +40,13 @@ export default async function LocaleLayout({
           <QueryProvider>
             <ThemeProvider>
               <AuthBootstrap />
-                <div className="relative min-h-screen overflow-hidden">
+                <div className="relative min-h-screen overflow-x-clip">
                   <HoneycombBackground />
-                  <div className="relative z-10">
+                  <div className="relative z-10 flex min-h-screen flex-col">
                     <Navbar />
-                    {children}
+                    <div className="flex-1">
+                      {children}
+                    </div>
                   </div>
                 </div>
             </ThemeProvider>

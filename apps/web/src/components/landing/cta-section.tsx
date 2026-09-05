@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link } from "@/i18n/navigation";
+import { QrCodeIcon } from "@/components/icons/qr-code-icon";
 
 export function CtaSection() {
   const t = useTranslations("cta");
@@ -15,9 +16,10 @@ export function CtaSection() {
         <motion.span
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.98 }}
-          className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-medium text-background"
+          className="mt-8 inline-flex items-center gap-2.5 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white shadow-xs transition-colors hover:bg-accent-strong"
         >
-          {t("button")}
+          <QrCodeIcon className="size-4.5 shrink-0" />
+          <span>{t("button")}</span>
         </motion.span>
       </Link>
     </section>

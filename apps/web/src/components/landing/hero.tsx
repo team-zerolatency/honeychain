@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { GlassPanel } from "@repo/ui/glass-panel";
 import { Link } from "@/i18n/navigation";
+import { QrCodeIcon } from "@/components/icons/qr-code-icon";
 
 
 export function Hero() {
@@ -24,9 +25,10 @@ export function Hero() {
             <motion.span
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
-              className="hero-cta inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background"
+              className="hero-cta inline-flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-xs transition-colors hover:bg-accent-strong"
             >
-              {t("cta")}
+              <QrCodeIcon className="size-4 shrink-0" />
+              <span>{t("cta")}</span>
             </motion.span>
           </Link>
           <Link href="/login" className="touch-manipulation">
