@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { getMessages, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { fraunces, manrope } from "@/lib/fonts";
-import { ThemeProvider } from "@/components/design/theme-provider";
-import { HoneycombBackground } from "@/components/design/honeycomb-background";
+import { ThemeProvider } from "@repo/ui/theme-provider";
+import { HoneycombBackground } from "@repo/ui/honeycomb-background";
 import { Navbar } from "@/components/navbar";
 import "./globals.css";
 
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
   title: "Honey Chain",
   description: "Blockchain-based honey traceability and smart beekeeping management.",
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children,
@@ -23,10 +28,13 @@ export default async function LocaleLayout({
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
 
+  setRequestLocale(locale);
+  const messages = await getMessages();
+
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${fraunces.variable} ${manrope.variable} font-sans antialiased`}>
-        <NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <div className="relative min-h-screen overflow-hidden">
               <HoneycombBackground />
