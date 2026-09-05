@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LifecycleStateSchema } from "./enums.js";
+import { LifecycleStateSchema } from "./enums";
 
 export const SupplyChainEventCreateSchema = z
   .object({

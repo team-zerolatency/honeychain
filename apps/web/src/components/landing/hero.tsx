@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { GlassPanel } from "@repo/ui/glass-panel";
+import { Link } from "@/i18n/navigation";
 
 
 export function Hero() {
@@ -19,13 +20,15 @@ export function Hero() {
         <p className="mt-4 max-w-md text-muted-foreground">{t("subtitle")}</p>
 
         <div className="mt-8 flex gap-3">
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background"
-          >
-            {t("cta")}
-          </motion.button>
+          <Link href="/verify">
+            <motion.span
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="hero-cta inline-block rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-background"
+            >
+              {t("cta")}
+            </motion.span>
+          </Link>
           <motion.button
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}

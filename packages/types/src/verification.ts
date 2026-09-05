@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { VerificationOutcomeSchema } from "./enums.js";
+import { VerificationOutcomeSchema } from "./enums";
 
 export const ScratchVerifySchema = z.object({
   qrToken: z.string().min(20),

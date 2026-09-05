@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { HiveStatusSchema } from "./enums.js";
+import { HiveStatusSchema } from "./enums";
 
 export const ApiaryCreateSchema = z.object({
   name: z.string().min(2).max(100),

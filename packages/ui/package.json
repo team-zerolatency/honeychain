@@ -12,7 +12,12 @@
     "./theme-toggle": "./src/components/theme-toggle.tsx",
     "./theme-provider": "./src/components/theme-provider.tsx",
     "./utils": "./src/lib/utils.ts",
-    "./scroll-reveal": "./src/components/design/scroll-reveal.tsx"
+    "./scroll-reveal": "./src/components/design/scroll-reveal.tsx",
+    "./input": "./src/components/ui/input.tsx",
+    "./label": "./src/components/ui/label.tsx",
+    "./form": "./src/components/ui/form.tsx",
+    "./select": "./src/components/ui/select.tsx",
+    "./card": "./src/components/ui/card.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -31,10 +36,12 @@
   "peerDependencies": {
     "next-intl": "*",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "react-hook-form": "*"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^5.9.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cn": "^0.2.5",
@@ -42,6 +49,8 @@
     "lucide-react": "^0.475.0",
     "next-themes": "^0.4.0",
     "radix-ui": "^1.6.7",
-    "tailwind-merge": "^2.5.0"
+    "react-hook-form": "^7.87.0",
+    "tailwind-merge": "^2.5.0",
+    "zod": "^4.5.4"
   }
 }

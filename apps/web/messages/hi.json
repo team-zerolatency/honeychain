@@ -1,4 +1,41 @@
 {
+  "auth": {
+    "loginTitle": "लॉग इन करें",
+    "registerTitle": "खाता बनाएं",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "name": "नाम",
+    "role": "मैं हूँ",
+    "roleBeekeeper": "मधुमक्खी पालक",
+    "roleStoreOwner": "स्टोर मालिक",
+    "login": "लॉग इन करें",
+    "loggingIn": "लॉग इन हो रहा है…",
+    "register": "खाता बनाएं",
+    "registering": "खाता बनाया जा रहा है…",
+    "genericError": "कुछ गलत हो गया। कृपया पुनः प्रयास करें।",
+    "noAccount": "खाता नहीं है?",
+    "haveAccount": "पहले से खाता है?"
+  },
+  "verify": {
+    "title": "बोतल की यात्रा जांचें",
+    "subtitle": "बोतल पर मौजूद QR कोड स्कैन करें, या विवरण मैन्युअल रूप से दर्ज करें।",
+    "scanButton": "QR कोड स्कैन करें",
+    "manualEntryLink": "इसके बजाय मैन्युअल रूप से दर्ज करें",
+    "cancel": "रद्द करें",
+    "scratchTitle": "स्क्रैच कोड दर्ज करें",
+    "tokenLabel": "QR कोड मान",
+    "scratchLabel": "स्क्रैच कोड",
+    "verifyButton": "सत्यापित करें",
+    "verifying": "सत्यापित हो रहा है…",
+    "invalidToken": "यह QR कोड पहचाना नहीं गया।",
+    "journeyHeading": "उत्पाद यात्रा",
+    "scanAnother": "दूसरी बोतल जांचें",
+    "outcome": {
+      "GREEN": "सत्यापित",
+      "YELLOW": "सत्यापित — सावधानी के साथ",
+      "RED": "सत्यापित नहीं"
+    }
+  },
   "nav": {
     "trace": "ट्रेस",
     "verify": "सत्यापित करें",

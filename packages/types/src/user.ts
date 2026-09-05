@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { RoleSchema } from "./enums.js";
+import { RoleSchema } from "./enums";
 
 export const UserCreateSchema = z.object({
   name: z.string().min(2).max(100),

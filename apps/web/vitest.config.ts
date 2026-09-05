@@ -7,6 +7,11 @@ export default defineConfig({
   test: {
     environment: "jsdom",
     setupFiles: ["./scripts/setup.ts"],
+    server: {
+      deps: {
+        inline: ["next-intl"],
+      },
+    },
   },
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") },

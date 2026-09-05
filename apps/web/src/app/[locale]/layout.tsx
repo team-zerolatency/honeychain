@@ -8,6 +8,8 @@ import { ThemeProvider } from "@repo/ui/theme-provider";
 import { HoneycombBackground } from "@repo/ui/honeycomb-background";
 import { Navbar } from "@/components/navbar";
 import "./globals.css";
+import { QueryProvider } from "@/components/query-provider";
+import { AuthBootstrap } from "@/components/auth-bootstrap";
 
 export const metadata: Metadata = {
   title: "Honey Chain",
@@ -35,15 +37,18 @@ export default async function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`${fraunces.variable} ${manrope.variable} font-sans antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <ThemeProvider>
-            <div className="relative min-h-screen overflow-hidden">
-              <HoneycombBackground />
-              <div className="relative z-10">
-                <Navbar />
-                {children}
-              </div>
-            </div>
-          </ThemeProvider>
+          <QueryProvider>
+            <ThemeProvider>
+              <AuthBootstrap />
+                <div className="relative min-h-screen overflow-hidden">
+                  <HoneycombBackground />
+                  <div className="relative z-10">
+                    <Navbar />
+                    {children}
+                  </div>
+                </div>
+            </ThemeProvider>
+          </QueryProvider>
         </NextIntlClientProvider>
       </body>
     </html>

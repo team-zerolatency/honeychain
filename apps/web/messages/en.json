@@ -1,4 +1,41 @@
 {
+  "auth": {
+    "loginTitle": "Log in",
+    "registerTitle": "Create an account",
+    "email": "Email",
+    "password": "Password",
+    "name": "Name",
+    "role": "I am a",
+    "roleBeekeeper": "Beekeeper",
+    "roleStoreOwner": "Store owner",
+    "login": "Log in",
+    "loggingIn": "Logging in…",
+    "register": "Create account",
+    "registering": "Creating account…",
+    "genericError": "Something went wrong. Please try again.",
+    "noAccount": "Don't have an account?",
+    "haveAccount": "Already have an account?"
+  },
+  "verify": {
+    "title": "Check a bottle's journey",
+    "subtitle": "Scan the QR code on the bottle, or enter its details manually.",
+    "scanButton": "Scan QR code",
+    "manualEntryLink": "Enter details manually instead",
+    "cancel": "Cancel",
+    "scratchTitle": "Enter the scratch code",
+    "tokenLabel": "QR code value",
+    "scratchLabel": "Scratch code",
+    "verifyButton": "Verify",
+    "verifying": "Verifying…",
+    "invalidToken": "This QR code isn't recognized.",
+    "journeyHeading": "Product journey",
+    "scanAnother": "Check another bottle",
+    "outcome": {
+      "GREEN": "Verified",
+      "YELLOW": "Verified — with a caution",
+      "RED": "Not verified"
+    }
+  },
   "nav": {
     "trace": "Trace",
     "verify": "Verify",

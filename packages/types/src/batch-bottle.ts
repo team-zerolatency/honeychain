@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { LifecycleStateSchema } from "./enums.js";
+import { LifecycleStateSchema } from "./enums";
 
 export const BatchCreateSchema = z.object({
   harvestId: z.string().uuid(),
