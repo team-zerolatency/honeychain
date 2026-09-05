@@ -5,6 +5,7 @@ import { listEventsForBottle } from "../services/lifecycle.service"
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { createBottle, getBottleWithOwnershipCheck } from "../services/bottle.service";
+import { listBottles } from "../services/bottle.service";
 
 export const bottleRouter: ExpressRouter = Router();
 bottleRouter.use(authenticate);
@@ -32,6 +33,15 @@ bottleRouter.get("/:id/events", async (req, res, next) => {
   try {
     const events = await listEventsForBottle(req.params.id, req.user!.id, req.user!.role);
     res.json(events);
+  } catch (err) {
+    next(err);
+  }
+});
+
+bottleRouter.get("/", async (req, res, next) => {
+  try {
+    const batchId = typeof req.query.batchId === "string" ? req.query.batchId : undefined;
+    res.json(await listBottles(req.user!.id, req.user!.role, batchId));
   } catch (err) {
     next(err);
   }

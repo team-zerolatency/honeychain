@@ -42,7 +42,10 @@
     "monitor": "निगरानी",
     "themeToggle": "थीम बदलें",
     "languageToggle": "भाषा बदलें",
-    "continue": "जारी रखें"
+    "continue": "जारी रखें",
+    "dashboard": "डैशबोर्ड",
+    "login": "लॉग इन",
+    "logout": "लॉग आउट"
   },
   "home": {
     "title": "शहद जिसे छत्ते तक खोजा जा सकता है।",
@@ -71,6 +74,32 @@
       "dispatched": "भेजा गया",
       "received": "प्राप्त हुआ",
       "availableForSale": "बिक्री हेतु उपलब्ध"
+    }
+  },
+  "dashboard": {
+    "nav": { "overview": "अवलोकन", "harvests": "फसलें", "storeOwners": "स्टोर मालिक", "logout": "लॉग आउट" },
+    "overview": {
+      "totalHives": "कुल छत्ते", "totalHarvests": "कुल फसलें", "pendingBatches": "लंबित बैच",
+      "apiaries": "आपके एपियरी", "noApiaries": "अभी तक कोई एपियरी नहीं — नीचे पहला जोड़ें।",
+      "addApiary": "एपियरी जोड़ें", "apiaryName": "एपियरी का नाम", "apiaryLocation": "स्थान",
+      "hivesIn": "छत्ते", "addHive": "छत्ता जोड़ें", "hiveCode": "छत्ता कोड"
+    },
+    "hive": {
+      "back": "अवलोकन पर वापस जाएं", "sensorHistory": "सेंसर इतिहास", "noReadings": "अभी तक कोई सेंसर रीडिंग नहीं — सेंसर जुड़ने पर यह भर जाएगा।",
+      "aiInsight": "AI स्वास्थ्य और उत्पादन अनुमान", "aiComingSoon": "अनुमान के लिए अभी पर्याप्त डेटा नहीं है। पर्याप्त सेंसर इतिहास और फसल रिकॉर्ड जमा होने पर AI अनुमान स्वतः शुरू हो जाएंगे।"
+    },
+    "harvests": {
+      "record": "फसल दर्ज करें", "hive": "छत्ता", "quantity": "मात्रा (किग्रा)", "date": "फसल की तारीख", "location": "स्थान",
+      "submit": "फसल दर्ज करें", "submitting": "दर्ज हो रहा है…", "list": "आपकी फसलें",
+      "noHarvests": "अभी तक कोई फसल दर्ज नहीं हुई।", "batchStatus": "बैच स्थिति", "noBatch": "अभी कोई बैच नहीं",
+      "createBatch": "बैच बनाएं", "creatingBatch": "बनाया जा रहा है…"
+    },
+    "storeOwners": {
+      "issue": "स्टोर मालिक खाता जारी करें", "name": "नाम", "location": "स्थान",
+      "submit": "क्रेडेंशियल जारी करें", "submitting": "जारी हो रहा है…",
+      "issuedTitle": "क्रेडेंशियल जारी — अभी सहेज लें, दोबारा नहीं दिखेंगे",
+      "memberId": "स्टोर आईडी", "temporaryPassword": "अस्थायी पासवर्ड", "close": "पूर्ण",
+      "list": "आपके द्वारा जारी स्टोर मालिक", "noOwners": "अभी तक कोई स्टोर मालिक जारी नहीं हुआ।"
     }
   },
   "actors": {

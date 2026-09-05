@@ -9,7 +9,7 @@ export default defineConfig({
     setupFiles: ["./scripts/setup.ts"],
     server: {
       deps: {
-        inline: ["next-intl"],
+        inline: ["next-intl", "@repo/ui"],
       },
     },
   },

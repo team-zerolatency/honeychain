@@ -20,3 +20,15 @@ export async function getHarvestWithOwnershipCheck(harvestId: string, userId: st
   assertApiaryOwnership(harvest.hive.apiary, userId, role);
   return harvest;
 }
+
+export async function listHarvests(userId: string, role: Role, hiveId?: string) {
+  const include = { batch: { select: { id: true, batchCode: true, status: true } } };
+  if (role === "ADMIN") {
+    return prisma.harvest.findMany({ where: hiveId ? { hiveId } : undefined, include, orderBy: { createdAt: "desc" } });
+  }
+  return prisma.harvest.findMany({
+    where: { beekeeperId: userId, ...(hiveId ? { hiveId } : {}) },
+    include,
+    orderBy: { createdAt: "desc" },
+  });
+}

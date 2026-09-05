@@ -7,7 +7,12 @@ import { useTheme } from "./theme-provider";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const t = useTranslations("nav");
+  let t = (key: string) => key;
+  try {
+    t = useTranslations("nav");
+  } catch {
+    // Graceful fallback when rendered outside NextIntlClientProvider
+  }
 
   return (
     <Button

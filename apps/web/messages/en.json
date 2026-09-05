@@ -42,7 +42,10 @@
     "monitor": "Monitor",
     "themeToggle": "Toggle theme",
     "languageToggle": "Change language",
-    "continue": "Continue"
+    "continue": "Continue",
+    "dashboard": "Dashboard",
+    "login": "Log in",
+    "logout": "Log out"
   },
   "home": {
     "title": "Honey you can trace to the hive.",
@@ -71,6 +74,32 @@
       "dispatched": "Dispatched",
       "received": "Received",
       "availableForSale": "Available for sale"
+    }
+  },
+  "dashboard": {
+    "nav": { "overview": "Overview", "harvests": "Harvests", "storeOwners": "Store Owners", "logout": "Log out" },
+    "overview": {
+      "totalHives": "Total hives", "totalHarvests": "Total harvests", "pendingBatches": "Pending batches",
+      "apiaries": "Your apiaries", "noApiaries": "No apiaries yet — add your first one below.",
+      "addApiary": "Add apiary", "apiaryName": "Apiary name", "apiaryLocation": "Location",
+      "hivesIn": "Hives", "addHive": "Add hive", "hiveCode": "Hive code"
+    },
+    "hive": {
+      "back": "Back to overview", "sensorHistory": "Sensor history", "noReadings": "No sensor readings yet — this will populate once a hive sensor is connected.",
+      "aiInsight": "AI health & yield insight", "aiComingSoon": "Not enough data yet for a prediction. AI insights activate automatically once enough sensor history and harvest records build up."
+    },
+    "harvests": {
+      "record": "Record a harvest", "hive": "Hive", "quantity": "Quantity (kg)", "date": "Harvest date", "location": "Location",
+      "submit": "Record harvest", "submitting": "Recording…", "list": "Your harvests",
+      "noHarvests": "No harvests recorded yet.", "batchStatus": "Batch status", "noBatch": "No batch yet",
+      "createBatch": "Create batch", "creatingBatch": "Creating…"
+    },
+    "storeOwners": {
+      "issue": "Issue a Store Owner account", "name": "Name", "location": "Location",
+      "submit": "Issue credentials", "submitting": "Issuing…",
+      "issuedTitle": "Credentials issued — save these now, they won't be shown again",
+      "memberId": "Store ID", "temporaryPassword": "Temporary password", "close": "Done",
+      "list": "Store owners you've issued", "noOwners": "No store owners issued yet."
     }
   },
   "actors": {

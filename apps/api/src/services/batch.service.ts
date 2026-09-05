@@ -55,3 +55,13 @@ export async function getBatchWithOwnershipCheck(batchId: string, userId: string
   }
   return batch;
 }
+
+export async function listBatches(userId: string, role: Role, harvestId?: string) {
+  if (role === "ADMIN") {
+    return prisma.batch.findMany({ where: harvestId ? { harvestId } : undefined, orderBy: { createdAt: "desc" } });
+  }
+  return prisma.batch.findMany({
+    where: { harvest: { beekeeperId: userId }, ...(harvestId ? { harvestId } : {}) },
+    orderBy: { createdAt: "desc" },
+  });
+}

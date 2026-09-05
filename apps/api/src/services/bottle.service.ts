@@ -51,3 +51,15 @@ export async function getBottleWithOwnershipCheck(bottleId: string, userId: stri
   const { batch, ...safeBottle } = bottle;
   return safeBottle;
 }
+
+export async function listBottles(userId: string, role: Role, batchId?: string) {
+  const where =
+    role === "ADMIN"
+      ? batchId ? { batchId } : {}
+      : { batch: { harvest: { beekeeperId: userId } }, ...(batchId ? { batchId } : {}) };
+  return prisma.bottle.findMany({
+    where,
+    select: { id: true, batchId: true, bottleCode: true, qrToken: true, status: true, createdAt: true },
+    orderBy: { createdAt: "desc" },
+  });
+}
