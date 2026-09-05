@@ -11,7 +11,8 @@
     "./honeycomb-background": "./src/components/design/honeycomb-background.tsx",
     "./theme-toggle": "./src/components/theme-toggle.tsx",
     "./theme-provider": "./src/components/theme-provider.tsx",
-    "./utils": "./src/lib/utils.ts"
+    "./utils": "./src/lib/utils.ts",
+    "./scroll-reveal": "./src/components/design/scroll-reveal.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -33,9 +34,11 @@
     "react-dom": "catalog:"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "cn": "^0.2.5",
+    "gsap": "^3.15.0",
     "lucide-react": "^0.475.0",
     "next-themes": "^0.4.0",
     "radix-ui": "^1.6.7",

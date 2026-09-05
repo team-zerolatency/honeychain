@@ -8,14 +8,47 @@
   },
   "home": {
     "title": "Honey you can trace to the hive.",
+    "titleLine1": "Honey you can trace",
+    "titleLine2": "to the hive.",
     "subtitle": "Every jar carries a verified journey from apiary to your table.",
     "cta": "Verify a product",
-    "ctaSecondary": "For KVIC & MSME"
+    "ctaSecondary": "For KVIC & MSME",
+    "demoBottleCode": "Bottle HC-2026-B0F3A2-000012",
+    "demoVerified": "Verified — GREEN",
+    "demoNoAnomaly": "No anomalies detected."
   },
   "pillars": {
     "trace": "Record honey origin, batch, bottle and supply-chain events.",
     "verify": "QR + scratch code + lifecycle signals catch verification anomalies.",
     "monitor": "Hive temperature, humidity, weight and acoustic activity.",
     "predict": "Anomaly and honey-yield insights generated from hive data."
+  },
+  "lifecycle": {
+    "heading": "One bottle, six checkpoints.",
+    "description": "Every batch and bottle moves through the same validated sequence — skipping a stage isn't possible.",
+    "stages": {
+      "harvested": "Harvested",
+      "extracted": "Extracted",
+      "packed": "Packed",
+      "dispatched": "Dispatched",
+      "received": "Received",
+      "availableForSale": "Available for sale"
+    }
+  },
+  "actors": {
+    "heading": "Built for everyone in the chain.",
+    "admin": { "title": "KVIC & Admin", "description": "Manage clusters, hives, batches and audit records across the network." },
+    "beekeeper": { "title": "Beekeeper", "description": "Monitor hives, record harvests, and track batches through processing." },
+    "storeOwner": { "title": "Store Owner", "description": "Confirm shipments and mark verified inventory available for sale." },
+    "consumer": { "title": "Consumer", "description": "Scan a QR code and check a bottle's journey — no account needed." }
+  },
+  "cta": {
+    "heading": "See where your honey has been.",
+    "subtitle": "Scan any Honey Chain bottle to check its journey from hive to shelf.",
+    "button": "Verify a product"
+  },
+  "footer": {
+    "tagline": "Honey Chain — blockchain-based honey traceability.",
+    "home": "Home"
   }
 }
