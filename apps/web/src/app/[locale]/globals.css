@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+:root {
+  --background: #F6EEDD;
+  --surface: #FFFBF2;
+  --surface-2: #FDF3DC;
+  --foreground: #241A0E;
+  --muted-foreground: #6E5B3E;
+  --accent: #C2790C;
+  --accent-strong: #8F590A;
+  --border: #E7D9BB;
+  --verify-green: #3F7F4C;
+  --verify-yellow: #B9821F;
+  --verify-red: #A83730;
+  --glass-bg: rgba(255, 251, 242, 0.55);
+  --glass-border: rgba(194, 121, 12, 0.2);
+}
+
+.dark {
+  --background: #14100B;
+  --surface: #1E160E;
+  --surface-2: #271C11;
+  --foreground: #F5EEDD;
+  --muted-foreground: #B8A88C;
+  --accent: #E8A317;
+  --accent-strong: #B9770E;
+  --border: #382A18;
+  --verify-green: #4C9A5B;
+  --verify-yellow: #D9A441;
+  --verify-red: #C1443D;
+  --glass-bg: rgba(30, 22, 14, 0.45);
+  --glass-border: rgba(232, 163, 23, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-border: var(--border);
+  --color-verify-green: var(--verify-green);
+  --color-verify-yellow: var(--verify-yellow);
+  --color-verify-red: var(--verify-red);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+/* One glass moment, reserved for the verification result panel */
+.glass-panel {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Signature hex-inspired corner clip — reserved for glanceable metric/pillar cards only */
+.hex-card {
+  clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

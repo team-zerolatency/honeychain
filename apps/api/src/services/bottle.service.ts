@@ -1,5 +1,6 @@
 import { prisma } from "@repo/database";
 import type { BottleCreateInput, Role } from "@repo/types";
+import { blockchainAdapter } from "./blockchain-adapter";
 import { NotFoundError, ForbiddenError, AppError } from "./errors";
 import { getBatchWithOwnershipCheck } from "./batch.service";
 import { generateQrToken, generateScratchCode, hashScratchCode } from "../utils/crypto";
@@ -24,6 +25,7 @@ export async function createBottle(userId: string, role: Role, input: BottleCrea
         data: { batchId: batch.id, bottleCode, qrToken, scratchHash },
         select: { id: true, batchId: true, bottleCode: true, qrToken: true, status: true, createdAt: true },
       });
+      await blockchainAdapter.registerBottle(bottle.id, bottle.batchId, bottle.bottleCode);
       // scratchCode is returned exactly once, right here — the DB only ever stores its hash.
       return { ...bottle, scratchCode };
     } catch (err: any) {

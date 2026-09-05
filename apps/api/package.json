@@ -9,11 +9,11 @@
     "start": "node dist/index.js",
     "test": "vitest run"
   },
-  
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@repo/blockchain": "workspace:^",
     "@repo/database": "workspace:^",
     "@repo/types": "workspace:^",
     "argon2": "^0.45.1",
@@ -25,6 +25,7 @@
     "jsonwebtoken": "^9.0.3",
     "pino": "^10.3.1",
     "pino-http": "^11.0.0",
+    "viem": "^2.56.3",
     "zod": "^4.5.4"
   },
   "devDependencies": {

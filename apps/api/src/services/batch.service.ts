@@ -1,5 +1,6 @@
 import crypto from "node:crypto";
 import { prisma } from "@repo/database";
+import { blockchainAdapter } from "./blockchain-adapter";
 import type { BatchCreateInput, Role } from "@repo/types";
 import { NotFoundError, ForbiddenError, AppError } from "./errors";
 import { getHarvestWithOwnershipCheck } from "./harvest.service";
@@ -15,7 +16,7 @@ export async function createBatch(userId: string, role: Role, input: BatchCreate
 
   for (let attempt = 0; attempt < 3; attempt++) {
     try {
-      return await prisma.batch.create({
+      const batch = await prisma.batch.create({
         data: {
           harvestId: input.harvestId,
           batchCode: generateBatchCode(),
@@ -23,6 +24,8 @@ export async function createBatch(userId: string, role: Role, input: BatchCreate
           processingDate: input.processingDate,
         },
       });
+      await blockchainAdapter.registerBatch(batch.id, batch.batchCode);
+      return batch;
     } catch (err: any) {
       if (err?.code === "P2002") {
         // With driver adapters, meta.target may not be populated. The two unique

@@ -1,0 +1,21 @@
+{
+  "nav": {
+    "trace": "Trace",
+    "verify": "Verify",
+    "monitor": "Monitor",
+    "themeToggle": "Toggle theme",
+    "languageToggle": "Change language"
+  },
+  "home": {
+    "title": "Honey you can trace to the hive.",
+    "subtitle": "Every jar carries a verified journey from apiary to your table.",
+    "cta": "Verify a product",
+    "ctaSecondary": "For KVIC & MSME"
+  },
+  "pillars": {
+    "trace": "Record honey origin, batch, bottle and supply-chain events.",
+    "verify": "QR + scratch code + lifecycle signals catch verification anomalies.",
+    "monitor": "Hive temperature, humidity, weight and acoustic activity.",
+    "predict": "Anomaly and honey-yield insights generated from hive data."
+  }
+}

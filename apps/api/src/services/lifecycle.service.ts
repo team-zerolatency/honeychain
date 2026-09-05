@@ -3,6 +3,7 @@ import type { SupplyChainEventCreateInput, Role, LifecycleState } from "@repo/ty
 import { NotFoundError, ForbiddenError, AppError } from "./errors";
 import { getBatchWithOwnershipCheck } from "./batch.service";
 import { getBottleWithOwnershipCheck } from "./bottle.service";
+import { blockchainAdapter, type OnChainLifecycleState } from "./blockchain-adapter";
 
 const VALID_TRANSITIONS: Record<LifecycleState, LifecycleState[]> = {
   HARVESTED: ["EXTRACTED"],
@@ -30,6 +31,23 @@ function assertRoleAuthorizedForStage(eventType: LifecycleState, role: Role) {
   throw new ForbiddenError(`Role ${role} cannot record a ${eventType} event`);
 }
 
+async function recordOnChainAndAttachHash(
+  eventId: string,
+  entityId: string,
+  isBottle: boolean,
+  eventType: keyof typeof OnChainLifecycleState
+) {
+  let txHash: string | null = null;
+  try {
+    txHash = await blockchainAdapter.recordEvent(entityId, isBottle, eventType);
+  } catch (err) {
+    console.error("[lifecycle] blockchain adapter threw unexpectedly:", err);
+  }
+  if (!txHash) return null;
+  const updated = await prisma.supplyChainEvent.update({ where: { id: eventId }, data: { txHash } });
+  return updated.txHash;
+}
+
 export async function recordEvent(userId: string, role: Role, input: SupplyChainEventCreateInput) {
   assertRoleAuthorizedForStage(input.eventType, role);
 
@@ -41,13 +59,14 @@ export async function recordEvent(userId: string, role: Role, input: SupplyChain
 
     assertValidTransition(batch.status, input.eventType);
 
-    const [, event] = await prisma.$transaction([
-      prisma.batch.update({ where: { id: batch.id }, data: { status: input.eventType } }),
-      prisma.supplyChainEvent.create({
+      const [, event] = await prisma.$transaction([
+        prisma.batch.update({ where: { id: batch.id }, data: { status: input.eventType } }),
+        prisma.supplyChainEvent.create({
         data: { batchId: batch.id, eventType: input.eventType, actorId: userId, location: input.location },
       }),
     ]);
-    return event;
+    const txHash = await recordOnChainAndAttachHash(event.id, batch.id, false, input.eventType);
+    return { ...event, txHash };
   }
 
   // input.bottleId — guaranteed by Zod's refine to have at least one of the two
@@ -61,10 +80,11 @@ export async function recordEvent(userId: string, role: Role, input: SupplyChain
   const [, event] = await prisma.$transaction([
     prisma.bottle.update({ where: { id: bottle.id }, data: { status: input.eventType } }),
     prisma.supplyChainEvent.create({
-      data: { bottleId: bottle.id, eventType: input.eventType, actorId: userId, location: input.location },
-    }),
-  ]);
-  return event;
+    data: { bottleId: bottle.id, eventType: input.eventType, actorId: userId, location: input.location },
+      }),
+    ]);
+    const txHash = await recordOnChainAndAttachHash(event.id, bottle.id, true, input.eventType);
+    return { ...event, txHash };
 }
 
 async function mustFindBatch(batchId: string) {

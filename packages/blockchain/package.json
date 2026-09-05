@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "compile": "hardhat compile",
+    "build": "hardhat build && tsx scripts/export-abi.ts",
     "test": "hardhat test",
     "node": "hardhat node",
-    "deploy:local": "hardhat run scripts/deploy.ts --network localhost"
+    "deploy:local": "hardhat run scripts/deploy.ts",
+    "export-abi": "tsx scripts/export-abi.ts"
   },
   "keywords": [],
   "author": "",
@@ -18,10 +19,14 @@
     "@types/node": "^22.20.1",
     "forge-std": "github:foundry-rs/forge-std#v1.16.2",
     "hardhat": "^3.15.0",
+    "tsx": "^4.23.12",
     "typescript": "~6.0.3",
     "viem": "^2.56.3"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.6.1"
+  },
+  "exports": {
+    "./abi/HoneyChainRegistry.json": "./abi/HoneyChainRegistry.json"
   }
 }

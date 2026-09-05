@@ -8,24 +8,39 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
+    "check-types": "next typegen && tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
     "@tailwindcss/postcss": "^4.3.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cn": "^0.2.5",
+    "lucide-react": "^1.41.0",
+    "motion": "^13.2.0",
     "next": "16.3.4",
+    "next-intl": "^4.14.2",
+    "next-themes": "^0.4.6",
     "postcss": "^8.5.28",
+    "radix-ui": "^1.6.7",
     "react": "19.2.8",
     "react-dom": "19.2.8",
+    "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.3",
     "@types/node": "26.4.1",
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
     "eslint": "10.9.1",
-    "typescript": "7.0.2"
+    "jsdom": "^30.0.1",
+    "typescript": "7.0.2",
+    "vitest": "^3.0.0"
   }
 }
