@@ -40,9 +40,15 @@ export async function verifyScratch(
   const signals: Record<string, any> = {};
   let outcome: "GREEN" | "YELLOW" = "GREEN";
 
-  if (bottle.status !== "AVAILABLE_FOR_SALE") {
-    signals.lifecycleInconsistent = { status: bottle.status };
+  const isAvailableForSale =
+    bottle.status === "AVAILABLE_FOR_SALE" || bottle.batch?.status === "AVAILABLE_FOR_SALE";
+
+  let cautionDetail = "";
+
+  if (!isAvailableForSale) {
+    signals.lifecycleInconsistent = { status: bottle.status, batchStatus: bottle.batch?.status };
     outcome = "YELLOW";
+    cautionDetail = "Product is authentic, but lifecycle is not yet marked as Available for Sale in store inventory.";
   }
 
   const recentScan = await prisma.verificationScan.findFirst({
@@ -56,6 +62,7 @@ export async function verifyScratch(
   if (recentScan) {
     signals.rapidRescan = { previousScanAt: recentScan.scannedAt };
     outcome = "YELLOW";
+    cautionDetail = "Rapid rescan detected: this bottle was already verified within the last 5 minutes.";
   }
 
   const priorScanCount = await prisma.verificationScan.count({
@@ -64,6 +71,7 @@ export async function verifyScratch(
   if (priorScanCount >= HIGH_FREQUENCY_THRESHOLD) {
     signals.highScanFrequency = { priorScanCount };
     outcome = "YELLOW";
+    cautionDetail = "High scan frequency: this code has been verified unusually many times.";
   }
 
   await prisma.verificationScan.create({ data: { bottleId: bottle.id, outcome, location, signals } });
@@ -82,6 +90,6 @@ export async function verifyScratch(
     message:
       outcome === "GREEN"
         ? "Product verified — no anomalies detected."
-        : "Product record found, but a verification signal warrants caution. See details below.",
+        : cautionDetail || "Product record found, but a verification signal warrants caution.",
   };
 }

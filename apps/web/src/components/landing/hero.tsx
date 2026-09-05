@@ -19,8 +19,8 @@ export function Hero() {
         </h1>
         <p className="mt-4 max-w-md text-muted-foreground">{t("subtitle")}</p>
 
-        <div className="mt-8 flex gap-3">
-          <Link href="/verify">
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link href="/verify" className="touch-manipulation">
             <motion.span
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -29,13 +29,15 @@ export function Hero() {
               {t("cta")}
             </motion.span>
           </Link>
-          <motion.button
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            className="rounded-full border border-border px-5 py-2.5 text-sm font-medium"
-          >
-            {t("ctaSecondary")}
-          </motion.button>
+          <Link href="/login" className="touch-manipulation">
+            <motion.span
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              className="inline-block rounded-full border border-border px-5 py-2.5 text-sm font-medium text-foreground hover:bg-surface-2 transition-colors"
+            >
+              {t("ctaSecondary")}
+            </motion.span>
+          </Link>
         </div>
 
 

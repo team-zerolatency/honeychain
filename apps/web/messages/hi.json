@@ -110,7 +110,16 @@
       "record": "फसल दर्ज करें", "hive": "छत्ता", "quantity": "मात्रा (किग्रा)", "date": "फसल की तारीख", "location": "स्थान",
       "submit": "फसल दर्ज करें", "submitting": "दर्ज हो रहा है…", "list": "आपकी फसलें",
       "noHarvests": "अभी तक कोई फसल दर्ज नहीं हुई।", "batchStatus": "बैच स्थिति", "noBatch": "अभी कोई बैच नहीं",
-      "createBatch": "बैच बनाएं", "creatingBatch": "बनाया जा रहा है…"
+      "createBatch": "बैच बनाएं", "creatingBatch": "बनाया जा रहा है…",
+      "createBottle": "बोतल बनाएं",
+      "creatingBottle": "बनाया जा रहा है…",
+      "scratchOnceWarning": "स्क्रैच कोड (अभी सहेजें, केवल एक बार दिखेगा)",
+      "downloadLabel": "लेबल डाउनलोड करें (PDF)",
+      "generatingLabel": "बनाया जा रहा है…",
+      "markExtracted": "निष्कासित चिह्नित करें",
+      "markPacked": "पैक चिह्नित करें",
+      "dispatchShipment": "शिपमेंट भेजें",
+      "updating": "अद्यतन हो रहा है…"
     },
     "storeOwners": {
       "issue": "स्टोर मालिक खाता जारी करें", "name": "नाम", "location": "स्थान",
@@ -118,6 +127,17 @@
       "issuedTitle": "क्रेडेंशियल जारी — अभी सहेज लें, दोबारा नहीं दिखेंगे",
       "memberId": "स्टोर आईडी", "temporaryPassword": "अस्थायी पासवर्ड", "close": "पूर्ण",
       "list": "आपके द्वारा जारी स्टोर मालिक", "noOwners": "अभी तक कोई स्टोर मालिक जारी नहीं हुआ।"
+    }
+  },
+  "store": {
+    "nav": { "shipments": "शिपमेंट", "inventory": "इन्वेंट्री", "logout": "लॉग आउट" },
+    "shipments": {
+      "heading": "आने वाले शिपमेंट", "noShipments": "अभी कोई शिपमेंट प्रतीक्षारत नहीं है।",
+      "from": "से", "status": "स्थिति", "confirmReceipt": "प्राप्ति की पुष्टि करें", "confirming": "पुष्टि हो रही है…",
+      "markAvailable": "बिक्री हेतु उपलब्ध चिह्नित करें", "marking": "चिह्नित हो रहा है…"
+    },
+    "inventory": {
+      "heading": "उपलब्ध इन्वेंट्री", "noInventory": "अभी तक कुछ भी बिक्री के लिए उपलब्ध चिह्नित नहीं है।"
     }
   },
   "actors": {

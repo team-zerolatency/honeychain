@@ -1,6 +1,7 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { apiFetch } from "@/lib/api-client";
 import { useAuthStore } from "@/stores/auth-store";
+import type { BottleCreateInput } from "@repo/types";
 import type {
   ApiaryCreateInput, HiveCreateInput, HarvestCreateInput, BatchCreateInput,
   CreateStoreOwnerInput, IssuedCredentials,
@@ -79,3 +80,9 @@ export const useCreateHarvest = () => useAuthedMutation<HarvestCreateInput, any>
 export const useCreateBatch = () => useAuthedMutation<BatchCreateInput, any>("/batches", [["harvests"]]);
 export const useCreateStoreOwner = () =>
   useAuthedMutation<CreateStoreOwnerInput, IssuedCredentials>("/store-owners", [["store-owners"]]);
+export const useCreateBottle = () => useAuthedMutation<BottleCreateInput, any>("/bottles", [["bottles"]]);
+export const useRecordLifecycleEvent = () =>
+  useAuthedMutation<{ batchId?: string; bottleId?: string; eventType: string; location?: string }, any>(
+    "/events",
+    [["harvests"], ["batches"]]
+  );

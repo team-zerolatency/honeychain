@@ -76,10 +76,13 @@ export function VerificationFlow() {
     setStage("scratch");
   }
 
+  const [cameraError, setCameraError] = useState<string | null>(null);
+
   function reset() {
     setStage("start");
     setQrToken(null);
     setResult(null);
+    setCameraError(null);
     scratchForm.reset();
   }
 
@@ -90,9 +93,19 @@ export function VerificationFlow() {
           <HexCard className="flex flex-col gap-4 p-8">
             <h1 className="font-display text-2xl font-medium">{t("title")}</h1>
             <p className="text-muted-foreground">{t("subtitle")}</p>
-            <Button onClick={() => setStage("scanning")}>{t("scanButton")}</Button>
+            <Button
+              type="button"
+              className="touch-manipulation"
+              onClick={() => {
+                setCameraError(null);
+                setStage("scanning");
+              }}
+            >
+              {t("scanButton")}
+            </Button>
             <button
-              className="text-sm text-muted-foreground underline underline-offset-4"
+              type="button"
+              className="text-sm text-muted-foreground underline underline-offset-4 touch-manipulation"
               onClick={() => setStage("scratch")}
             >
               {t("manualEntryLink")}
@@ -104,11 +117,28 @@ export function VerificationFlow() {
       {stage === "scanning" && (
         <Card className="p-6 md:p-7">
           <HexCard className="flex flex-col gap-4 p-8">
-            <div className="overflow-hidden rounded-2xl border border-border">
-              <Scanner onScan={handleScan} onError={() => {}} />
+            <div className="overflow-hidden rounded-2xl border border-border bg-black/5 min-h-[220px] flex items-center justify-center">
+              <Scanner
+                onScan={handleScan}
+                onError={(err: any) => {
+                  setCameraError(
+                    err?.message || "Camera access failed. Web cameras require a secure HTTPS connection or permissions."
+                  );
+                }}
+              />
             </div>
+            {cameraError && (
+              <div className="rounded-xl border border-verify-yellow/40 bg-verify-yellow/10 p-3 text-xs text-verify-yellow">
+                <p className="font-semibold">Camera Access Notice</p>
+                <p className="mt-1">{cameraError}</p>
+                <p className="mt-1 text-muted-foreground">
+                  Note: Mobile browsers require HTTPS to stream live video. You can also scan the QR code using your phone's built-in Camera app or enter the code manually below.
+                </p>
+              </div>
+            )}
             <button
-              className="text-sm text-muted-foreground underline underline-offset-4"
+              type="button"
+              className="text-sm text-muted-foreground underline underline-offset-4 touch-manipulation"
               onClick={() => setStage("start")}
             >
               {t("cancel")}

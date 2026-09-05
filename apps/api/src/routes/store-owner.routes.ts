@@ -5,6 +5,7 @@ import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { createStoreOwnerAccount } from "../services/auth.service";
 import { prisma } from "@repo/database";
+import { listShipments, listInventory } from "../services/store-dashboard.service";
 
 export const storeOwnerRouter: ExpressRouter = Router();
 storeOwnerRouter.use(authenticate);
@@ -34,4 +35,12 @@ storeOwnerRouter.get("/", requireRole("BEEKEEPER", "ADMIN"), async (req, res, ne
   } catch (err) {
     next(err);
   }
+});
+
+storeOwnerRouter.get("/shipments", requireRole("STORE_OWNER", "ADMIN"), async (_req, res, next) => {
+  try { res.json(await listShipments()); } catch (err) { next(err); }
+});
+
+storeOwnerRouter.get("/inventory", requireRole("STORE_OWNER", "ADMIN"), async (_req, res, next) => {
+  try { res.json(await listInventory()); } catch (err) { next(err); }
 });

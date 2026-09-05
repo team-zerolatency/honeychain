@@ -110,7 +110,16 @@
       "record": "Record a harvest", "hive": "Hive", "quantity": "Quantity (kg)", "date": "Harvest date", "location": "Location",
       "submit": "Record harvest", "submitting": "Recording…", "list": "Your harvests",
       "noHarvests": "No harvests recorded yet.", "batchStatus": "Batch status", "noBatch": "No batch yet",
-      "createBatch": "Create batch", "creatingBatch": "Creating…"
+      "createBatch": "Create batch", "creatingBatch": "Creating…",
+      "createBottle": "Generate a bottle",
+      "creatingBottle": "Generating…",
+      "scratchOnceWarning": "Scratch code (save this now, shown once)",
+      "downloadLabel": "Download label (PDF)",
+      "generatingLabel": "Generating…",
+      "markExtracted": "Mark Extracted",
+      "markPacked": "Mark Packed",
+      "dispatchShipment": "Dispatch Shipment",
+      "updating": "Updating…"
     },
     "storeOwners": {
       "issue": "Issue a Store Owner account", "name": "Name", "location": "Location",
@@ -118,6 +127,17 @@
       "issuedTitle": "Credentials issued — save these now, they won't be shown again",
       "memberId": "Store ID", "temporaryPassword": "Temporary password", "close": "Done",
       "list": "Store owners you've issued", "noOwners": "No store owners issued yet."
+    }
+  },
+  "store": {
+    "nav": { "shipments": "Shipments", "inventory": "Inventory", "logout": "Log out" },
+    "shipments": {
+      "heading": "Incoming shipments", "noShipments": "No shipments waiting right now.",
+      "from": "From", "status": "Status", "confirmReceipt": "Confirm receipt", "confirming": "Confirming…",
+      "markAvailable": "Mark available for sale", "marking": "Marking…"
+    },
+    "inventory": {
+      "heading": "Available inventory", "noInventory": "Nothing marked available for sale yet."
     }
   },
   "actors": {

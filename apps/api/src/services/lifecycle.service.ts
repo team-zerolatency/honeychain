@@ -59,12 +59,13 @@ export async function recordEvent(userId: string, role: Role, input: SupplyChain
 
     assertValidTransition(batch.status, input.eventType);
 
-      const [, event] = await prisma.$transaction([
+      const [, , event] = await prisma.$transaction([
         prisma.batch.update({ where: { id: batch.id }, data: { status: input.eventType } }),
+        prisma.bottle.updateMany({ where: { batchId: batch.id }, data: { status: input.eventType } }),
         prisma.supplyChainEvent.create({
-        data: { batchId: batch.id, eventType: input.eventType, actorId: userId, location: input.location },
-      }),
-    ]);
+          data: { batchId: batch.id, eventType: input.eventType, actorId: userId, location: input.location },
+        }),
+      ]);
     const txHash = await recordOnChainAndAttachHash(event.id, batch.id, false, input.eventType);
     return { ...event, txHash };
   }
