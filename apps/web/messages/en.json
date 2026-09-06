@@ -106,7 +106,8 @@
       "back": "Back to overview", "sensorHistory": "Sensor history", "noReadings": "No sensor readings yet — this will populate once a hive sensor is connected.",
       "aiInsight": "AI health & yield insight", "aiComingSoon": "Not enough data yet for a prediction. AI insights activate automatically once enough sensor history and harvest records build up.",
       "anomalyStatus": "Hive status", "expectedYield": "Expected yield (next 7 days)",
-      "statusNormal": "Normal", "statusAnomaly": "Anomaly detected"
+      "statusNormal": "Normal", "statusAnomaly": "Anomaly detected",
+      "temperature": "Temperature", "humidity": "Humidity", "weight": "Weight", "latestValues": "Current readings"
     },
     "harvests": {
       "record": "Record a harvest", "hive": "Hive", "quantity": "Quantity (kg)", "date": "Harvest date", "location": "Location",

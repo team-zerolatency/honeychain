@@ -2,7 +2,7 @@
 
 import { use } from "react";
 import { useTranslations } from "next-intl";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from "recharts";
 import { format } from "date-fns";
 import { Link } from "@/i18n/navigation";
 import { HexCard } from "@repo/ui/hex-card";
@@ -16,6 +16,8 @@ export default function HiveDetailPage({ params }: { params: Promise<{ id: strin
   const readingsQuery = useHiveReadings(id);
   const insightQuery = useHiveInsight(id);
 
+  const latestReading = readingsQuery.data?.[0];
+
   const chartData = (readingsQuery.data ?? [])
     .slice()
     .reverse()
@@ -27,21 +29,68 @@ export default function HiveDetailPage({ params }: { params: Promise<{ id: strin
       <h1 className="mt-4 font-display text-2xl">{hiveQuery.data?.hiveCode ?? "…"}</h1>
 
       <div className="mt-6 rounded-2xl border border-border bg-surface p-4">
-        <p className="font-medium">{t("sensorHistory")}</p>
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <p className="font-medium">{t("sensorHistory")}</p>
+          {latestReading && (
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-verify-red/30 bg-verify-red/10 px-2.5 py-1 font-medium text-verify-red">
+                <span className="h-2 w-2 rounded-full bg-verify-red" />
+                {t("temperature")}: {Number(latestReading.temperature).toFixed(1)} °C
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-2.5 py-1 font-medium text-accent">
+                <span className="h-2 w-2 rounded-full bg-accent" />
+                {t("humidity")}: {Number(latestReading.humidity).toFixed(0)} %
+              </span>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-verify-green/30 bg-verify-green/10 px-2.5 py-1 font-medium text-verify-green">
+                <span className="h-2 w-2 rounded-full bg-verify-green" />
+                {t("weight")}: {Number(latestReading.weight).toFixed(1)} kg
+              </span>
+            </div>
+          )}
+        </div>
         {readingsQuery.isLoading && <div className="mt-3 h-64 animate-pulse rounded-xl bg-surface-2" />}
         {!readingsQuery.isLoading && chartData.length === 0 && (
           <p className="mt-6 text-sm text-muted-foreground">{t("noReadings")}</p>
         )}
         {chartData.length > 0 && (
-          <ResponsiveContainer width="100%" height={280}>
+          <ResponsiveContainer width="100%" height={300}>
             <LineChart data={chartData} margin={{ top: 16, right: 16, left: -16, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
               <XAxis dataKey="time" fontSize={12} stroke="var(--muted-foreground)" />
               <YAxis fontSize={12} stroke="var(--muted-foreground)" />
-              <Tooltip contentStyle={{ background: "var(--surface)", border: "1px solid var(--border)" }} />
-              <Line type="monotone" dataKey="temperature" stroke="var(--verify-red)" dot={false} />
-              <Line type="monotone" dataKey="humidity" stroke="var(--accent)" dot={false} />
-              <Line type="monotone" dataKey="weight" stroke="var(--verify-green)" dot={false} />
+              <Tooltip
+                contentStyle={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "8px", fontSize: "12px" }}
+                formatter={(value: any, name: any) => [`${value}`, name]}
+              />
+              <Legend
+                verticalAlign="top"
+                align="right"
+                wrapperStyle={{ paddingBottom: "12px", fontSize: "12px" }}
+              />
+              <Line
+                type="monotone"
+                dataKey="temperature"
+                name={`${t("temperature")} (°C)`}
+                stroke="var(--verify-red)"
+                strokeWidth={2}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="humidity"
+                name={`${t("humidity")} (%)`}
+                stroke="var(--accent)"
+                strokeWidth={2}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="weight"
+                name={`${t("weight")} (kg)`}
+                stroke="var(--verify-green)"
+                strokeWidth={2}
+                dot={false}
+              />
             </LineChart>
           </ResponsiveContainer>
         )}

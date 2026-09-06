@@ -83,26 +83,16 @@ def generate_all() -> pd.DataFrame:
     start = datetime(2026, 1, 1)
     frames = [generate_hive_series(hive_id, rng, start) for hive_id in HIVE_IDS]
     df = pd.concat(frames, ignore_index=True)
-
     df = df.sort_values(["hive_id", "timestamp"]).reset_index(drop=True)
-    df["weight_change"] = df.groupby("hive_id")["weight"].diff().fillna(0)
-    df["season"] = df["timestamp"].dt.month.map(MONTH_TO_SEASON)
-
-    # yield_kg: forward-looking 7-day (168-hour) cumulative weight gain per hive.
-    # This is our chosen proxy target for "how much honey will this hive produce next" —
-    # every dataset has weight+timestamp, so this definition works regardless of source.
-    df["yield_kg"] = (
-        df.groupby("hive_id")["weight"]
-        .transform(lambda s: s.shift(-168) - s)
-    )
-
-    return df
+    df["source"] = "synthetic"
+    return df  # weight_change/season/yield_kg now added uniformly by combine.py
 
 
 if __name__ == "__main__":
-    PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+    from src.config import MAPPED_DIR
+    MAPPED_DIR.mkdir(parents=True, exist_ok=True)
     df = generate_all()
-    out_path = PROCESSED_DIR / "training_data.csv"
+    out_path = MAPPED_DIR / "synthetic.csv"
     df.to_csv(out_path, index=False)
     print(f"Generated {len(df)} rows across {df['hive_id'].nunique()} hives -> {out_path}")
     print(f"Known anomaly rate: {df['label'].mean():.2%}")

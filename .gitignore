@@ -60,3 +60,4 @@ apps/ai-service/data/processed
 apps/ai-service/__pycache__
 apps/ai-service/**/__pycache__
 apps/ai-service/.pytest_cache
+apps/ai-service/models/*.joblib

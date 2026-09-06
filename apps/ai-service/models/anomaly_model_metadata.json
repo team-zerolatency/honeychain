@@ -1,5 +1,5 @@
 {
-  "trained_at": "2026-09-06T09:16:44.243873+00:00",
+  "trained_at": "2026-09-06T12:05:41.067553+00:00",
   "features": [
     "temperature",
     "humidity",
@@ -7,13 +7,21 @@
     "weight_change",
     "acoustic_features"
   ],
-  "n_training_rows": 10800,
+  "n_training_rows": 990579,
+  "n_complete_rows": 10800,
+  "n_model_training_rows": 7860,
   "contamination": 0.05,
+  "source_breakdown": {
+    "hobos": 934716,
+    "ufc": 45063,
+    "synthetic": 10800
+  },
   "evaluation_against_known_labels": {
-    "precision": 0.289,
-    "recall": 0.488,
-    "f1": 0.363,
-    "flagged_count": 540,
-    "true_anomaly_count": 320
-  }
+    "precision": 0.129,
+    "recall": 0.262,
+    "f1": 0.173,
+    "flagged_count": 163,
+    "true_anomaly_count": 80
+  },
+  "evaluation_note": "Evaluated on a held-out set of 2700 complete labeled rows; known anomalies were excluded from model fitting."
 }
