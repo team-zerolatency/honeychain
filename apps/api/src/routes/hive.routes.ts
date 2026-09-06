@@ -4,6 +4,7 @@ import type { Router as ExpressRouter } from "express";
 import { authenticate } from "../middleware/authenticate";
 import { requireRole } from "../middleware/require-role";
 import { createHive, listHives, getHiveWithOwnershipCheck, getHiveReadings } from "../services/hive.service";
+import { getHiveInsight } from "../services/ai-insight.service";
 
 export const hiveRouter: ExpressRouter = Router();
 hiveRouter.use(authenticate);
@@ -41,6 +42,15 @@ hiveRouter.get("/:id/readings", async (req, res, next) => {
   try {
     const readings = await getHiveReadings(req.params.id, req.user!.id, req.user!.role);
     res.json(readings);
+  } catch (err) {
+    next(err);
+  }
+});
+
+hiveRouter.get("/:id/insights", async (req, res, next) => {
+  try {
+    const insight = await getHiveInsight(req.params.id, req.user!.id, req.user!.role);
+    res.json(insight);
   } catch (err) {
     next(err);
   }

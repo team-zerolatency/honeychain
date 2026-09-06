@@ -25,6 +25,7 @@ const EnvSchema = z
     JWT_ACCESS_EXPIRES_IN: z.string().default("15m"),
     JWT_REFRESH_EXPIRES_IN: z.string().default("7d"),
     WEB_ORIGIN: z.string().default("http://localhost:3000"),
+    AI_SERVICE_URL: z.string().default("http://localhost:8000"),
     DATABASE_URL: z.string().min(1),
 
     BLOCKCHAIN_ENABLED: z

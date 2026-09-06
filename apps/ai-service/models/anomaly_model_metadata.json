@@ -1,0 +1,19 @@
+{
+  "trained_at": "2026-09-06T09:16:44.243873+00:00",
+  "features": [
+    "temperature",
+    "humidity",
+    "weight",
+    "weight_change",
+    "acoustic_features"
+  ],
+  "n_training_rows": 10800,
+  "contamination": 0.05,
+  "evaluation_against_known_labels": {
+    "precision": 0.289,
+    "recall": 0.488,
+    "f1": 0.363,
+    "flagged_count": 540,
+    "true_anomaly_count": 320
+  }
+}

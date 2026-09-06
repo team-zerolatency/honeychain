@@ -1,0 +1,17 @@
+{
+  "trained_at": "2026-09-06T09:16:58.105089+00:00",
+  "features": [
+    "temperature",
+    "humidity",
+    "weight",
+    "weight_change",
+    "season_winter",
+    "season_spring",
+    "season_summer",
+    "season_autumn"
+  ],
+  "n_training_rows": 7968,
+  "n_test_rows": 1992,
+  "mean_absolute_error_kg": 1.206,
+  "r2_score": 0.409
+}

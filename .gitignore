@@ -51,3 +51,12 @@ packages/blockchain/cache
 
 # Auto-generated TypeScript types for smart contracts
 packages/blockchain/typechain-types
+
+# AI models local environments, caches, and build artifacts.
+apps/ai-service/.venv
+apps/ai-service/data/raw
+apps/ai-service/data/mapped
+apps/ai-service/data/processed
+apps/ai-service/__pycache__
+apps/ai-service/**/__pycache__
+apps/ai-service/.pytest_cache

@@ -65,6 +65,16 @@ export function useStoreOwners() {
   });
 }
 
+export function useHiveInsight(hiveId: string) {
+  const token = useToken();
+  return useQuery({
+    queryKey: ["hive-insight", hiveId],
+    queryFn: () => apiFetch<any>(`/hives/${hiveId}/insights`, { token: token! }),
+    enabled: !!token && !!hiveId,
+    refetchInterval: 30000, // matches the ESP32's 30s reporting cadence from Phase 16
+  });
+}
+
 function useAuthedMutation<TInput, TOutput>(path: string, invalidateKeys: string[][]) {
   const token = useToken();
   const client = useQueryClient();

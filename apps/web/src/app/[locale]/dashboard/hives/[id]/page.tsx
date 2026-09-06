@@ -7,12 +7,14 @@ import { format } from "date-fns";
 import { Link } from "@/i18n/navigation";
 import { HexCard } from "@repo/ui/hex-card";
 import { useHive, useHiveReadings } from "@/hooks/use-beekeeper-data";
+import { useHiveInsight } from "@/hooks/use-beekeeper-data";
 
 export default function HiveDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const t = useTranslations("dashboard.hive");
   const hiveQuery = useHive(id);
   const readingsQuery = useHiveReadings(id);
+  const insightQuery = useHiveInsight(id);
 
   const chartData = (readingsQuery.data ?? [])
     .slice()
@@ -47,7 +49,20 @@ export default function HiveDetailPage({ params }: { params: Promise<{ id: strin
 
       <HexCard className="mt-6">
         <p className="font-medium">{t("aiInsight")}</p>
-        <p className="mt-2 text-sm text-muted-foreground">{t("aiComingSoon")}</p>
+        {insightQuery.isLoading && <div className="mt-3 h-16 animate-pulse rounded-xl bg-surface-2" />}
+        {insightQuery.data?.available === false && (
+          <p className="mt-2 text-sm text-muted-foreground">{t("aiComingSoon")}</p>
+        )}
+        {insightQuery.data?.available === true && (
+          <div className="mt-2 space-y-1">
+            <p className={`text-sm font-medium ${insightQuery.data.status === "ANOMALY" ? "text-verify-red" : "text-verify-green"}`}>
+              {t("anomalyStatus")}: {insightQuery.data.status === "ANOMALY" ? t("statusAnomaly") : t("statusNormal")}
+            </p>
+            <p className="text-sm text-muted-foreground">
+              {t("expectedYield")}: {insightQuery.data.expected_yield_kg} kg
+            </p>
+          </div>
+        )}
       </HexCard>
     </div>
   );
