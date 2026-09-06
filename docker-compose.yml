@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: honeychain
+      POSTGRES_PASSWORD: honeychain_dev
+      POSTGRES_DB: honeychain
+    ports:
+      - "5432:5432"
+    volumes:
+      - honeychain_pg_data:/var/lib/postgresql/data
+
+  mosquitto:
+    image: eclipse-mosquitto:2
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./infra/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+
+volumes:
+  honeychain_pg_data:

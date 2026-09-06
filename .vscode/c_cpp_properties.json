@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "Win32",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${env:USERPROFILE}/Documents/Arduino/libraries/**",
+        "${env:USERPROFILE}/OneDrive/Documents/Arduino/libraries/**",
+        "${env:LOCALAPPDATA}/Arduino15/packages/**",
+        "${env:LOCALAPPDATA}/Arduino15/libraries/**"
+      ],
+      "defines": [
+        "USBCON"
+      ],
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64"
+    }
+  ],
+  "version": 4
+}
