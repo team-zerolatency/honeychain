@@ -4,6 +4,7 @@ const path = require("path");
 
 const projectRoot = __dirname;
 const monorepoRoot = path.resolve(projectRoot, "../..");
+const { withNativeWind } = require("nativewind/metro");
 
 dotenv.config({ path: path.join(monorepoRoot, ".env") });
 
@@ -20,3 +21,4 @@ config.resolver.unstable_enableSymlinks = true;
 config.resolver.unstable_enablePackageExports = true;
 
 module.exports = config;
+module.exports = withNativeWind(config, { input: "./global.css" });

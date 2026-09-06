@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { Link } from "expo-router";
 
 type Status = "checking" | "ok" | "error";
 const apiUrl = process.env.EXPO_PUBLIC_API_URL ?? "http://localhost:4000";
@@ -28,6 +29,7 @@ export default function HomeScreen() {
       {status === "checking" && <Text>Checking API connection...</Text>}
       {status === "ok" && <Text style={styles.ok}>Connected - {detail}</Text>}
       {status === "error" && <Text style={styles.error}>Could not reach API: {detail}</Text>}
+      <Link href="/preview" style={{ marginTop: 16, color: "#C2790C" }}>View design preview →</Link>
     </View>
   );
 }
