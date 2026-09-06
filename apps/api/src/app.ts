@@ -23,6 +23,7 @@ import { chatbotRouter } from "./routes/chatbot.routes";
 export function createApp(): express.Express {
   const app = express();
 
+  app.use(cors({ origin: [env.WEB_ORIGIN, /^http:\/\/192\.168\.\d+\.\d+:\d+$/], credentials: true }));
   app.use(helmet());
   app.use(cors({ origin: env.WEB_ORIGIN, credentials: true }));
   app.use(express.json());

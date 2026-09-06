@@ -1,9 +1,27 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # Dependencies
-node_modules
+node_modules/
 .pnp
 .pnp.js
+
+# Expo and mobile build outputs
+.expo/
+web-build/
+expo-env.d.ts
+apps/mobile/dist/
+
+# Native and Metro generated files
+.kotlin/
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+.metro-health-check*
+apps/mobile/ios/
+apps/mobile/android/
 
 # Local env files
 .env
@@ -11,6 +29,7 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
+.env*.local
 
 # Testing
 coverage
