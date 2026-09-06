@@ -28,6 +28,9 @@ const EnvSchema = z
     AI_SERVICE_URL: z.string().default("http://localhost:8000"),
     MQTT_ENABLED: z.coerce.boolean().default(false),
     MQTT_BROKER_URL: z.string().default("mqtt://localhost:1883"),
+    GROQ_ENABLED: z.coerce.boolean().default(false),
+    GROQ_API_KEY: z.string().optional(),
+    GROQ_MODEL: z.string().default("openai/gpt-oss-20b"),
     DATABASE_URL: z.string().min(1),
 
     BLOCKCHAIN_ENABLED: z

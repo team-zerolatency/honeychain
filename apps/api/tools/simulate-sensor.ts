@@ -1,17 +1,18 @@
 import mqtt from "mqtt";
 
-const [, , hiveCode = "HIVE-001", intervalSecArg = "5"] = process.argv;
+const [, , hiveCode = "HIVE-WB-01", intervalSecArg = "5"] = process.argv;
 const intervalSec = Number(intervalSecArg);
 const topic = `honeychain/hives/${hiveCode}/sensors`;
+const simulateAnomalies = process.env.SIMULATE_ANOMALIES === "true";
 const client = mqtt.connect(process.env.MQTT_BROKER_URL ?? "mqtt://localhost:1883");
 
 function randomReading() {
-  const isAnomaly = Math.random() < 0.05; // ~5% simulated anomalies, useful later for Phase 17 too
+  const isAnomaly = simulateAnomalies && Math.random() < 0.05;
   return {
     temperature: isAnomaly ? 45 + Math.random() * 5 : 33 + Math.random() * 3,
     humidity: 55 + Math.random() * 10,
     weight: 40 + Math.random() * 0.5,
-    acousticScore: Math.random(),
+    acousticScore: isAnomaly ? Math.random() * 0.1 : 0.4 + Math.random() * 0.2,
     timestamp: new Date().toISOString(),
   };
 }

@@ -155,6 +155,11 @@
     "subtitle": "Scan any Honey Chain bottle to check its journey from hive to shelf.",
     "button": "Verify a product"
   },
+  "chatbot": {
+    "openLabel": "Chat with support", "title": "Honey Chain Support", "placeholder": "Ask a question…",
+    "send": "Send", "sending": "…", "unavailable": "Chat support isn't available right now.",
+    "greeting": "Hi! Ask me anything about Honey Chain — verification, accounts, or how the system works."
+  },
   "footer": {
     "tagline": "Honey Chain — blockchain-based honey traceability.",
     "home": "Home"

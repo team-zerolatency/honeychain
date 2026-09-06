@@ -10,6 +10,7 @@ import { Navbar } from "@/components/navbar";
 import "./globals.css";
 import { QueryProvider } from "@/components/query-provider";
 import { AuthBootstrap } from "@/components/auth-bootstrap";
+import { ChatbotWidget } from "@/components/chatbot-widget";
 
 export const metadata: Metadata = {
   title: "Honey Chain",
@@ -46,6 +47,7 @@ export default async function LocaleLayout({
                     <Navbar />
                     <div className="flex-1">
                       {children}
+                      <ChatbotWidget />
                     </div>
                   </div>
                 </div>

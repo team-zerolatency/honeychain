@@ -39,6 +39,8 @@ importers:
         specifier: 7.0.2
         version: 7.0.2
 
+  apps/ai-service: {}
+
   apps/api:
     dependencies:
       '@repo/blockchain':
