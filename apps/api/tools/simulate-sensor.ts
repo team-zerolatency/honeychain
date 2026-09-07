@@ -1,10 +1,14 @@
 import mqtt from "mqtt";
+import dotenv from "dotenv";
+import { resolve } from "node:path";
+
+dotenv.config({ path: resolve(process.cwd(), "../../.env") });
 
 const [, , hiveCode = "HIVE-WB-01", intervalSecArg = "5"] = process.argv;
 const intervalSec = Number(intervalSecArg);
 const topic = `honeychain/hives/${hiveCode}/sensors`;
 const simulateAnomalies = process.env.SIMULATE_ANOMALIES === "true";
-const client = mqtt.connect(process.env.MQTT_BROKER_URL ?? "mqtt://localhost:1883");
+const client = mqtt.connect(process.env.MQTT_BROKER_URL ?? "mqtt://127.0.0.1:1883");
 
 function randomReading() {
   const isAnomaly = simulateAnomalies && Math.random() < 0.05;

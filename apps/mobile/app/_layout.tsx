@@ -6,14 +6,17 @@ import { useColorScheme } from "nativewind";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Fraunces_500Medium, Fraunces_600SemiBold } from "@expo-google-fonts/fraunces";
 import { Manrope_400Regular, Manrope_600SemiBold } from "@expo-google-fonts/manrope";
-
-SplashScreen.preventAutoHideAsync();
+import "@/i18n";
 
 export default function RootLayout() {
   const { colorScheme, setColorScheme } = useColorScheme();
   const [fontsLoaded] = useFonts({
     Fraunces_500Medium, Fraunces_600SemiBold, Manrope_400Regular, Manrope_600SemiBold,
   });
+
+  useEffect(() => {
+    SplashScreen.preventAutoHideAsync();
+  }, []);
 
   useEffect(() => {
     if (!colorScheme) setColorScheme("dark"); // same dark-first brand default as web
@@ -26,7 +29,7 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <View className={`flex-1 ${colorScheme === "dark" ? "dark" : ""}`}>
+    <View className="flex-1">
       <Stack screenOptions={{ headerShown: false }} />
     </View>
   );

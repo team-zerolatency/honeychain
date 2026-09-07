@@ -1,0 +1,9 @@
+{
+  "name": "@repo/i18n",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./en.json": "./en.json",
+    "./hi.json": "./hi.json"
+  }
+}
