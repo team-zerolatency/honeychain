@@ -9,7 +9,7 @@ from src.data_mapping.common import add_derived_features
 
 
 def combine():
-    mapped_files = sorted(MAPPED_DIR.glob("*.csv"))
+    mapped_files = sorted(MAPPED_DIR.glob("*.cṭsv"))
     if not mapped_files:
         raise FileNotFoundError(f"No mapped files in {MAPPED_DIR}. Run the mappers first.")
 

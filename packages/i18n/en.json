@@ -62,7 +62,7 @@
     "nav": { "overview": "Overview", "beekeepers": "Beekeepers", "audit": "Audit", "logout": "Log out" },
     "overview": {
       "totalBeekeepers": "Beekeepers", "totalHives": "Hives", "totalBatches": "Batches", "totalStoreOwners": "Store owners",
-      "verificationTrend": "Verification outcomes (last 14 days)", "noScansYet": "No verification scans yet."
+      "verificationTrend": "Verification outcomes (last 14 days)", "greenLegend": "Verified", "yellowLegend": "Caution", "redLegend": "Not verified", "noScansYet": "No verification scans yet."
     },
     "beekeepers": {
       "issue": "Issue a Beekeeper account", "name": "Name", "submit": "Issue credentials", "submitting": "Issuing…",

@@ -42,7 +42,16 @@ export default function AdminOverviewPage() {
               <XAxis dataKey="date" fontSize={12} stroke="var(--muted-foreground)" />
               <YAxis fontSize={12} stroke="var(--muted-foreground)" allowDecimals={false} />
               <Tooltip contentStyle={{ background: "var(--surface)", border: "1px solid var(--border)" }} />
-              <Legend />
+              <Legend
+                formatter={(value) => {
+                  const descriptions: Record<string, string> = {
+                    GREEN: t("greenLegend"),
+                    YELLOW: t("yellowLegend"),
+                    RED: t("redLegend"),
+                  };
+                  return `${value} — ${descriptions[value] ?? value}`;
+                }}
+              />
               <Line type="monotone" dataKey="GREEN" stroke="var(--verify-green)" dot={false} />
               <Line type="monotone" dataKey="YELLOW" stroke="var(--verify-yellow)" dot={false} />
               <Line type="monotone" dataKey="RED" stroke="var(--verify-red)" dot={false} />

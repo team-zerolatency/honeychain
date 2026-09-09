@@ -8,12 +8,12 @@ import { useColorScheme } from "nativewind";
  * this app: never write a bare `dark:` prefix class — always resolve through `t()` below.
  */
 export function useAppColorScheme() {
-  const { colorScheme, setColorScheme } = useColorScheme();
+  const { colorScheme, setColorScheme, toggleColorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
 
   function t(lightClasses: string, darkClasses: string): string {
     return isDark ? darkClasses : lightClasses;
   }
 
-  return { isDark, colorScheme, setColorScheme, t };
+  return { isDark, colorScheme, setColorScheme, toggleColorScheme, t };
 }

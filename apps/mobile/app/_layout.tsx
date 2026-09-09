@@ -1,4 +1,5 @@
 import "../global.css";
+import "@/i18n";
 import { useEffect } from "react";
 import { View } from "react-native";
 import { Stack } from "expo-router";
@@ -6,20 +7,18 @@ import { useColorScheme } from "nativewind";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts, Fraunces_500Medium, Fraunces_600SemiBold } from "@expo-google-fonts/fraunces";
 import { Manrope_400Regular, Manrope_600SemiBold } from "@expo-google-fonts/manrope";
-import "@/i18n";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { AuthBootstrap } from "@/components/auth-bootstrap";
+
+const queryClient = new QueryClient({ defaultOptions: { queries: { retry: 1 } } });
+SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const { colorScheme, setColorScheme } = useColorScheme();
-  const [fontsLoaded] = useFonts({
-    Fraunces_500Medium, Fraunces_600SemiBold, Manrope_400Regular, Manrope_600SemiBold,
-  });
+  const [fontsLoaded] = useFonts({ Fraunces_500Medium, Fraunces_600SemiBold, Manrope_400Regular, Manrope_600SemiBold });
 
   useEffect(() => {
-    SplashScreen.preventAutoHideAsync();
-  }, []);
-
-  useEffect(() => {
-    if (!colorScheme) setColorScheme("dark"); // same dark-first brand default as web
+    if (!colorScheme) setColorScheme("dark");
   }, [colorScheme, setColorScheme]);
 
   useEffect(() => {
@@ -29,8 +28,13 @@ export default function RootLayout() {
   if (!fontsLoaded) return null;
 
   return (
-    <View className="flex-1">
-      <Stack screenOptions={{ headerShown: false }} />
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View className="flex-1">
+        <AuthBootstrap />
+        <Stack screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="login" options={{ presentation: "modal" }} />
+        </Stack>
+      </View>
+    </QueryClientProvider>
   );
 }

@@ -29,14 +29,19 @@ authRouter.post("/login", loginLimiter, async (req, res, next) => {
     const input = LoginSchema.parse(req.body);
     const result = await loginUser(input);
     res.cookie(REFRESH_COOKIE, result.refreshToken, cookieOptions);
-    res.status(200).json({ userId: result.userId, role: result.role, accessToken: result.accessToken });
+    res.status(200).json({
+      userId: result.userId,
+      role: result.role,
+      accessToken: result.accessToken,
+      refreshToken: result.refreshToken, // web ignores this; mobile stores it in SecureStore
+    });
   } catch (err) {
     next(err);
   }
 });
 
 authRouter.post("/refresh", (req, res) => {
-  const token = req.cookies?.[REFRESH_COOKIE];
+  const token = req.cookies?.[REFRESH_COOKIE] ?? req.body?.refreshToken;
   if (!token) return res.status(401).json({ error: "No refresh token" });
   try {
     const payload = verifyRefreshToken(token);

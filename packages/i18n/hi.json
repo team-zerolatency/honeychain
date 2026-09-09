@@ -62,7 +62,7 @@
     "nav": { "overview": "अवलोकन", "beekeepers": "मधुमक्खी पालक", "audit": "ऑडिट", "logout": "लॉग आउट" },
     "overview": {
       "totalBeekeepers": "मधुमक्खी पालक", "totalHives": "छत्ते", "totalBatches": "बैच", "totalStoreOwners": "स्टोर मालिक",
-      "verificationTrend": "सत्यापन परिणाम (पिछले 14 दिन)", "noScansYet": "अभी तक कोई सत्यापन स्कैन नहीं।"
+      "verificationTrend": "सत्यापन परिणाम (पिछले 14 दिन)", "greenLegend": "सत्यापित", "yellowLegend": "सावधानी", "redLegend": "सत्यापित नहीं", "noScansYet": "अभी तक कोई सत्यापन स्कैन नहीं।"
     },
     "beekeepers": {
       "issue": "मधुमक्खी पालक खाता जारी करें", "name": "नाम", "submit": "क्रेडेंशियल जारी करें", "submitting": "जारी हो रहा है…",
