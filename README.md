@@ -157,3 +157,27 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
 - [Configuration Options](https://turborepo.dev/docs/reference/configuration)
 - [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+
+## Presentation setup
+
+Use the local PostgreSQL container for demos so the application does not depend on the Neon network connection. The seed is safe to rerun and creates the demo beekeeper, apiary, three hives, sensor history, and harvest records.
+
+From the repository root:
+
+```powershell
+docker compose up -d postgres mosquitto
+$env:DATABASE_URL = "postgresql://honeychain:honeychain_dev@localhost:5433/honeychain"
+pnpm --filter @repo/database exec prisma migrate deploy
+pnpm --filter @repo/database exec tsx prisma/seed.ts
+pnpm --filter api dev
+pnpm --filter web dev
+```
+
+Demo beekeeper credentials are `BK-2026-DEMO01` and `beekeeper12345` unless overridden in `.env`.
+
+If the existing local PostgreSQL volume rejects these credentials, it was created with older settings. This deletes only the local Docker database volume, so use it only for development:
+
+```powershell
+docker compose down -v
+docker compose up -d postgres mosquitto
+```

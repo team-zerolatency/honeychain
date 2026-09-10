@@ -7,7 +7,7 @@ services:
       POSTGRES_PASSWORD: honeychain_dev
       POSTGRES_DB: honeychain
     ports:
-      - "5432:5432"
+      - "5433:5432"
     volumes:
       - honeychain_pg_data:/var/lib/postgresql/data
 
