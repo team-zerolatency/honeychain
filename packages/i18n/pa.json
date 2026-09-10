@@ -1,0 +1,114 @@
+{
+  "auth": {
+    "loginTitle": "ਲੌਗ ਇਨ ਕਰੋ",
+    "registerTitle": "ਖਾਤਾ ਬਣਾਓ",
+    "identifier": "ਮਧੂਮੱਖੀ ਪਾਲਕ ID, ਸਟੋਰ ID ਜਾਂ ਈਮੇਲ",
+    "password": "ਪਾਸਵਰਡ",
+    "name": "ਨਾਮ",
+    "role": "ਮੈਂ ਹਾਂ",
+    "roleBeekeeper": "ਮਧੂਮੱਖੀ ਪਾਲਕ",
+    "roleStoreOwner": "ਸਟੋਰ ਮਾਲਕ",
+    "login": "ਜਾਰੀ ਰੱਖੋ",
+    "loggingIn": "ਸਾਈਨ ਇਨ ਹੋ ਰਿਹਾ ਹੈ…",
+    "register": "ਖਾਤਾ ਬਣਾਓ",
+    "registering": "ਖਾਤਾ ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…",
+    "genericError": "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+    "noAccount": "ਖਾਤਾ ਨਹੀਂ ਹੈ?",
+    "haveAccount": "ਪਹਿਲਾਂ ਤੋਂ ਖਾਤਾ ਹੈ?"
+  },
+  "verify": {
+    "title": "ਬੋਤਲ ਦੀ ਯਾਤਰਾ ਜਾਂਚੋ",
+    "subtitle": "ਬੋਤਲ ਉੱਤੇ ਦਿੱਤਾ QR ਕੋਡ ਸਕੈਨ ਕਰੋ ਜਾਂ ਵੇਰਵੇ ਹੱਥੋਂ ਦਰਜ ਕਰੋ।",
+    "scanButton": "QR ਕੋਡ ਸਕੈਨ ਕਰੋ",
+    "manualEntryLink": "ਇਸ ਦੀ ਬਜਾਏ ਵੇਰਵੇ ਹੱਥੋਂ ਦਰਜ ਕਰੋ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "scratchTitle": "ਸਕ੍ਰੈਚ ਕੋਡ ਦਰਜ ਕਰੋ",
+    "tokenLabel": "QR ਕੋਡ ਮੁੱਲ",
+    "scratchLabel": "ਸਕ੍ਰੈਚ ਕੋਡ",
+    "verifyButton": "ਤਸਦੀਕ ਕਰੋ",
+    "verifying": "ਤਸਦੀਕ ਹੋ ਰਹੀ ਹੈ…",
+    "invalidToken": "ਇਹ QR ਕੋਡ ਪਛਾਣਿਆ ਨਹੀਂ ਗਿਆ।",
+    "journeyHeading": "ਉਤਪਾਦ ਦੀ ਯਾਤਰਾ",
+    "scanAnother": "ਹੋਰ ਬੋਤਲ ਜਾਂਚੋ",
+    "outcome": { "GREEN": "ਤਸਦੀਕਸ਼ੁਦਾ", "YELLOW": "ਤਸਦੀਕਸ਼ੁਦਾ — ਸਾਵਧਾਨੀ ਨਾਲ", "RED": "ਤਸਦੀਕਸ਼ੁਦਾ ਨਹੀਂ" }
+  },
+  "nav": {
+    "trace": "ਟ੍ਰੇਸ",
+    "verify": "ਤਸਦੀਕ ਕਰੋ",
+    "monitor": "ਨਿਗਰਾਨੀ",
+    "themeToggle": "ਥੀਮ ਬਦਲੋ",
+    "languageToggle": "ਭਾਸ਼ਾ ਬਦਲੋ",
+    "continue": "ਜਾਰੀ ਰੱਖੋ",
+    "dashboard": "ਡੈਸ਼ਬੋਰਡ",
+    "login": "ਲੌਗ ਇਨ",
+    "logout": "ਲੌਗ ਆਉਟ"
+  },
+  "home": {
+    "title": "ਉਹ ਸ਼ਹਿਦ ਜਿਸ ਦੀ ਯਾਤਰਾ ਛੱਤੇ ਤੱਕ ਪਤਾ ਲੱਗੇ।",
+    "titleLine1": "ਉਹ ਸ਼ਹਿਦ ਜਿਸ ਦੀ ਯਾਤਰਾ",
+    "titleLine2": "ਛੱਤੇ ਤੱਕ ਪਤਾ ਲੱਗੇ।",
+    "subtitle": "ਹਰ ਸ਼ੀਸ਼ੀ ਵਿੱਚ ਮਧੂਮੱਖੀ ਫਾਰਮ ਤੋਂ ਤੁਹਾਡੀ ਮੇਜ਼ ਤੱਕ ਦੀ ਤਸਦੀਕਸ਼ੁਦਾ ਯਾਤਰਾ ਹੈ।",
+    "cta": "ਉਤਪਾਦ ਤਸਦੀਕ ਕਰੋ",
+    "ctaSecondary": "KVIC ਅਤੇ MSME ਲਈ",
+    "demoBottleCode": "ਬੋਤਲ HC-2026-B0F3A2-000012",
+    "demoVerified": "ਤਸਦੀਕਸ਼ੁਦਾ — ਹਰਾ",
+    "demoNoAnomaly": "ਕੋਈ ਗੜਬੜ ਨਹੀਂ ਮਿਲੀ।"
+  },
+  "admin": {
+    "nav": { "overview": "ਜਾਇਜ਼ਾ", "beekeepers": "ਮਧੂਮੱਖੀ ਪਾਲਕ", "audit": "ਆਡਿਟ", "logout": "ਲੌਗ ਆਉਟ" },
+    "overview": {
+      "totalBeekeepers": "ਮਧੂਮੱਖੀ ਪਾਲਕ", "totalHives": "ਛੱਤੇ", "totalBatches": "ਬੈਚ", "totalStoreOwners": "ਸਟੋਰ ਮਾਲਕ",
+      "verificationTrend": "ਤਸਦੀਕ ਦੇ ਨਤੀਜੇ (ਪਿਛਲੇ 14 ਦਿਨ)", "greenLegend": "ਤਸਦੀਕਸ਼ੁਦਾ", "yellowLegend": "ਸਾਵਧਾਨੀ", "redLegend": "ਤਸਦੀਕਸ਼ੁਦਾ ਨਹੀਂ", "noScansYet": "ਹਾਲੇ ਕੋਈ ਤਸਦੀਕੀ ਸਕੈਨ ਨਹੀਂ।"
+    },
+    "beekeepers": {
+      "issue": "ਮਧੂਮੱਖੀ ਪਾਲਕ ਖਾਤਾ ਜਾਰੀ ਕਰੋ", "name": "ਨਾਮ", "submit": "ਵੇਰਵੇ ਜਾਰੀ ਕਰੋ", "submitting": "ਜਾਰੀ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…",
+      "issuedTitle": "ਵੇਰਵੇ ਜਾਰੀ ਹੋ ਗਏ — ਹੁਣੇ ਸੰਭਾਲ ਲਓ, ਦੁਬਾਰਾ ਨਹੀਂ ਦਿਖਾਏ ਜਾਣਗੇ",
+      "memberId": "ਮਧੂਮੱਖੀ ਪਾਲਕ ID", "temporaryPassword": "ਅਸਥਾਈ ਪਾਸਵਰਡ", "close": "ਮੁਕੰਮਲ",
+      "list": "ਸਾਰੇ ਮਧੂਮੱਖੀ ਪਾਲਕ", "noBeekeepers": "ਹਾਲੇ ਕੋਈ ਮਧੂਮੱਖੀ ਪਾਲਕ ਜਾਰੀ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।", "apiaryCount": "ਮਧੂਮੱਖੀ ਫਾਰਮ", "harvestCount": "ਵਾਢੀਆਂ"
+    },
+    "audit": {
+      "heading": "ਬਲਾਕਚੇਨ ਆਡਿਟ ਟ੍ਰੇਲ", "event": "ਘਟਨਾ", "entity": "ਇਕਾਈ", "actor": "ਕਰਤਾ", "txHash": "Tx ਹੈਸ਼", "noTx": "ਚੇਨ ਉੱਤੇ ਦਰਜ ਨਹੀਂ", "time": "ਸਮਾਂ", "noEvents": "ਹਾਲੇ ਕੋਈ ਘਟਨਾ ਦਰਜ ਨਹੀਂ ਹੋਈ।"
+    }
+  },
+  "pillars": {
+    "trace": "ਸ਼ਹਿਦ ਦਾ ਸਰੋਤ, ਬੈਚ, ਬੋਤਲ ਅਤੇ ਸਪਲਾਈ-ਚੇਨ ਦੀਆਂ ਘਟਨਾਵਾਂ ਦਰਜ ਕਰੋ।",
+    "verify": "QR + ਸਕ੍ਰੈਚ ਕੋਡ + ਜੀਵਨ-ਚੱਕਰ ਸੰਕੇਤ ਤਸਦੀਕੀ ਗੜਬੜਾਂ ਪਕੜਦੇ ਹਨ।",
+    "monitor": "ਛੱਤੇ ਦਾ ਤਾਪਮਾਨ, ਨਮੀ, ਭਾਰ ਅਤੇ ਆਵਾਜ਼ੀ ਸਰਗਰਮੀ।",
+    "predict": "ਛੱਤੇ ਦੇ ਡੇਟਾ ਤੋਂ ਗੜਬੜ ਅਤੇ ਸ਼ਹਿਦ ਦੀ ਪੈਦਾਵਾਰ ਬਾਰੇ ਜਾਣਕਾਰੀ।"
+  },
+  "lifecycle": {
+    "heading": "ਇੱਕ ਬੋਤਲ, ਛੇ ਪੜਾਅ।",
+    "description": "ਹਰ ਬੈਚ ਅਤੇ ਬੋਤਲ ਇੱਕੋ ਤਸਦੀਕਸ਼ੁਦਾ ਕ੍ਰਮ ਵਿੱਚ ਅੱਗੇ ਵਧਦੀ ਹੈ — ਕੋਈ ਪੜਾਅ ਛੱਡਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।",
+    "stages": { "harvested": "ਵਾਢੀ ਹੋਈ", "extracted": "ਕੱਢਿਆ ਗਿਆ", "packed": "ਪੈਕ ਕੀਤਾ ਗਿਆ", "dispatched": "ਭੇਜਿਆ ਗਿਆ", "received": "ਪ੍ਰਾਪਤ ਹੋਇਆ", "availableForSale": "ਵਿਕਰੀ ਲਈ ਉਪਲਬਧ" }
+  },
+  "dashboard": {
+    "nav": { "overview": "ਜਾਇਜ਼ਾ", "harvests": "ਵਾਢੀਆਂ", "storeOwners": "ਸਟੋਰ ਮਾਲਕ", "alerts": "ਚੇਤਾਵਨੀਆਂ", "logout": "ਲੌਗ ਆਉਟ" },
+    "overview": {
+      "totalHives": "ਕੁੱਲ ਛੱਤੇ", "totalHarvests": "ਕੁੱਲ ਵਾਢੀਆਂ", "pendingBatches": "ਬਾਕੀ ਬੈਚ", "apiaries": "ਤੁਹਾਡੇ ਮਧੂਮੱਖੀ ਫਾਰਮ", "noApiaries": "ਹਾਲੇ ਕੋਈ ਮਧੂਮੱਖੀ ਫਾਰਮ ਨਹੀਂ — ਹੇਠਾਂ ਆਪਣਾ ਪਹਿਲਾ ਜੋੜੋ।", "addApiary": "ਮਧੂਮੱਖੀ ਫਾਰਮ ਜੋੜੋ", "apiaryName": "ਮਧੂਮੱਖੀ ਫਾਰਮ ਦਾ ਨਾਮ", "apiaryLocation": "ਟਿਕਾਣਾ", "hivesIn": "ਛੱਤੇ", "addHive": "ਛੱਤਾ ਜੋੜੋ", "hiveCode": "ਛੱਤੇ ਦਾ ਕੋਡ"
+    },
+    "hive": {
+      "back": "ਜਾਇਜ਼ੇ ਉੱਤੇ ਵਾਪਸ ਜਾਓ", "sensorHistory": "ਸੈਂਸਰ ਇਤਿਹਾਸ", "noReadings": "ਹਾਲੇ ਕੋਈ ਸੈਂਸਰ ਰੀਡਿੰਗ ਨਹੀਂ — ਛੱਤੇ ਦਾ ਸੈਂਸਰ ਜੁੜਨ ਉੱਤੇ ਇਹ ਭਰ ਜਾਵੇਗਾ।", "aiInsight": "AI ਸਿਹਤ ਅਤੇ ਪੈਦਾਵਾਰ ਜਾਣਕਾਰੀ", "aiComingSoon": "ਅਨੁਮਾਨ ਲਈ ਹਾਲੇ ਕਾਫ਼ੀ ਡੇਟਾ ਨਹੀਂ ਹੈ।", "anomalyStatus": "ਛੱਤੇ ਦੀ ਸਥਿਤੀ", "expectedYield": "ਉਮੀਦ ਕੀਤੀ ਪੈਦਾਵਾਰ (ਅਗਲੇ 7 ਦਿਨ)", "statusNormal": "ਸਧਾਰਨ", "statusAnomaly": "ਗੜਬੜ ਮਿਲੀ", "temperature": "ਤਾਪਮਾਨ", "humidity": "ਨਮੀ", "weight": "ਭਾਰ", "latestValues": "ਮੌਜੂਦਾ ਰੀਡਿੰਗਾਂ"
+    },
+    "harvests": {
+      "record": "ਵਾਢੀ ਦਰਜ ਕਰੋ", "hive": "ਛੱਤਾ", "quantity": "ਮਾਤਰਾ (ਕਿਲੋ)", "date": "ਵਾਢੀ ਦੀ ਤਾਰੀਖ", "location": "ਟਿਕਾਣਾ", "submit": "ਵਾਢੀ ਦਰਜ ਕਰੋ", "submitting": "ਦਰਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…", "list": "ਤੁਹਾਡੀਆਂ ਵਾਢੀਆਂ", "noHarvests": "ਹਾਲੇ ਕੋਈ ਵਾਢੀ ਦਰਜ ਨਹੀਂ ਹੋਈ।", "batchStatus": "ਬੈਚ ਦੀ ਸਥਿਤੀ", "noBatch": "ਹਾਲੇ ਕੋਈ ਬੈਚ ਨਹੀਂ", "createBatch": "ਬੈਚ ਬਣਾਓ", "creatingBatch": "ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…", "createBottle": "ਬੋਤਲ ਬਣਾਓ", "creatingBottle": "ਬਣਾਈ ਜਾ ਰਹੀ ਹੈ…", "scratchOnceWarning": "ਸਕ੍ਰੈਚ ਕੋਡ (ਹੁਣੇ ਸੰਭਾਲੋ, ਸਿਰਫ਼ ਇੱਕ ਵਾਰ ਦਿਖੇਗਾ)", "downloadLabel": "ਲੇਬਲ ਡਾਊਨਲੋਡ ਕਰੋ (PDF)", "generatingLabel": "ਬਣਾਇਆ ਜਾ ਰਿਹਾ ਹੈ…", "markExtracted": "ਕੱਢਿਆ ਗਿਆ ਦਰਜ ਕਰੋ", "markPacked": "ਪੈਕ ਕੀਤਾ ਦਰਜ ਕਰੋ", "dispatchShipment": "ਸ਼ਿਪਮੈਂਟ ਭੇਜੋ", "updating": "ਅੱਪਡੇਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"
+    },
+    "storeOwners": {
+      "issue": "ਸਟੋਰ ਮਾਲਕ ਖਾਤਾ ਜਾਰੀ ਕਰੋ", "name": "ਨਾਮ", "location": "ਟਿਕਾਣਾ", "submit": "ਵੇਰਵੇ ਜਾਰੀ ਕਰੋ", "submitting": "ਜਾਰੀ ਕੀਤੇ ਜਾ ਰਹੇ ਹਨ…", "issuedTitle": "ਵੇਰਵੇ ਜਾਰੀ ਹੋ ਗਏ — ਹੁਣੇ ਸੰਭਾਲ ਲਓ, ਦੁਬਾਰਾ ਨਹੀਂ ਦਿਖਾਏ ਜਾਣਗੇ", "memberId": "ਸਟੋਰ ID", "temporaryPassword": "ਅਸਥਾਈ ਪਾਸਵਰਡ", "close": "ਮੁਕੰਮਲ", "list": "ਤੁਹਾਡੇ ਵੱਲੋਂ ਜਾਰੀ ਕੀਤੇ ਸਟੋਰ ਮਾਲਕ", "noOwners": "ਹਾਲੇ ਕੋਈ ਸਟੋਰ ਮਾਲਕ ਜਾਰੀ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।"
+    }
+  },
+  "store": {
+    "nav": { "shipments": "ਸ਼ਿਪਮੈਂਟਾਂ", "inventory": "ਸਮਾਨ", "logout": "ਲੌਗ ਆਉਟ" },
+    "shipments": { "heading": "ਆਉਣ ਵਾਲੀਆਂ ਸ਼ਿਪਮੈਂਟਾਂ", "noShipments": "ਇਸ ਵੇਲੇ ਕੋਈ ਸ਼ਿਪਮੈਂਟ ਉਡੀਕ ਵਿੱਚ ਨਹੀਂ।", "from": "ਵੱਲੋਂ", "status": "ਸਥਿਤੀ", "confirmReceipt": "ਪ੍ਰਾਪਤੀ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ", "confirming": "ਪੁਸ਼ਟੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…", "markAvailable": "ਵਿਕਰੀ ਲਈ ਉਪਲਬਧ ਦਰਜ ਕਰੋ", "marking": "ਦਰਜ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…" },
+    "inventory": { "heading": "ਵਿਕਰੀ ਲਈ ਉਪਲਬਧ ਸਮਾਨ", "noInventory": "ਹਾਲੇ ਵਿਕਰੀ ਲਈ ਕੁਝ ਵੀ ਉਪਲਬਧ ਨਹੀਂ ਕੀਤਾ ਗਿਆ।" }
+  },
+  "actors": {
+    "heading": "ਚੇਨ ਵਿੱਚ ਹਰ ਕਿਸੇ ਲਈ ਬਣਾਇਆ ਗਿਆ।",
+    "admin": { "title": "KVIC ਅਤੇ ਐਡਮਿਨ", "description": "ਪੂਰੇ ਨੈੱਟਵਰਕ ਵਿੱਚ ਕਲੱਸਟਰ, ਛੱਤੇ, ਬੈਚ ਅਤੇ ਆਡਿਟ ਰਿਕਾਰਡ ਸੰਭਾਲੋ।" },
+    "beekeeper": { "title": "ਮਧੂਮੱਖੀ ਪਾਲਕ", "description": "ਛੱਤਿਆਂ ਦੀ ਨਿਗਰਾਨੀ ਕਰੋ, ਵਾਢੀਆਂ ਦਰਜ ਕਰੋ ਅਤੇ ਬੈਚਾਂ ਨੂੰ ਟ੍ਰੈਕ ਕਰੋ।" },
+    "storeOwner": { "title": "ਸਟੋਰ ਮਾਲਕ", "description": "ਸ਼ਿਪਮੈਂਟਾਂ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਤਸਦੀਕਸ਼ੁਦਾ ਸਮਾਨ ਨੂੰ ਵਿਕਰੀ ਲਈ ਉਪਲਬਧ ਕਰੋ।" },
+    "consumer": { "title": "ਖਪਤਕਾਰ", "description": "QR ਕੋਡ ਸਕੈਨ ਕਰਕੇ ਬੋਤਲ ਦੀ ਯਾਤਰਾ ਜਾਂਚੋ — ਖਾਤੇ ਦੀ ਲੋੜ ਨਹੀਂ।" }
+  },
+  "cta": { "heading": "ਦੇਖੋ ਤੁਹਾਡਾ ਸ਼ਹਿਦ ਕਿੱਥੋਂ ਆਇਆ।", "subtitle": "ਕਿਸੇ ਵੀ Honey Chain ਬੋਤਲ ਨੂੰ ਸਕੈਨ ਕਰਕੇ ਛੱਤੇ ਤੋਂ ਦੁਕਾਨ ਤੱਕ ਦੀ ਯਾਤਰਾ ਜਾਂਚੋ।", "button": "ਉਤਪਾਦ ਤਸਦੀਕ ਕਰੋ" },
+  "chatbot": { "openLabel": "ਸਹਾਇਤਾ ਨਾਲ ਗੱਲਬਾਤ ਕਰੋ", "title": "Honey Chain ਸਹਾਇਤਾ", "placeholder": "ਸਵਾਲ ਪੁੱਛੋ…", "send": "ਭੇਜੋ", "sending": "…", "unavailable": "ਇਸ ਵੇਲੇ ਚੈਟ ਸਹਾਇਤਾ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।", "greeting": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! Honey Chain, ਤਸਦੀਕ ਜਾਂ ਖਾਤਿਆਂ ਬਾਰੇ ਕੁਝ ਵੀ ਪੁੱਛੋ।" },
+  "footer": { "tagline": "Honey Chain — ਬਲਾਕਚੇਨ ਆਧਾਰਿਤ ਸ਼ਹਿਦ ਟ੍ਰੇਸਬਿਲਿਟੀ।", "home": "ਮੁੱਖ ਪੰਨਾ" }
+}

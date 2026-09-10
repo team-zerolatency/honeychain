@@ -4,6 +4,7 @@
   "private": true,
   "exports": {
     "./en.json": "./en.json",
-    "./hi.json": "./hi.json"
+    "./hi.json": "./hi.json",
+    "./pa.json": "./pa.json"
   }
 }

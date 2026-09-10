@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@repo/ui/dropdown-menu";
 
-const LOCALE_LABELS: Record<string, string> = { en: "English", hi: "हिंदी" };
+const LOCALE_LABELS: Record<string, string> = { en: "English", hi: "हिंदी", pa: "ਪੰਜਾਬੀ" };
 
 export function LanguageSwitcher() {
   const locale = useLocale();
@@ -47,4 +47,4 @@ export function LanguageSwitcher() {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+}

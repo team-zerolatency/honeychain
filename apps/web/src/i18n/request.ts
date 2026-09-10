@@ -6,6 +6,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
   const requested = await requestLocale;
   const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
   const messages =
-    locale === "hi" ? (await import("@repo/i18n/hi.json")).default : (await import("@repo/i18n/en.json")).default;
+    locale === "hi"
+      ? (await import("@repo/i18n/hi.json")).default
+      : locale === "pa"
+        ? (await import("@repo/i18n/pa.json")).default
+        : (await import("@repo/i18n/en.json")).default;
   return { locale, messages };
 });
